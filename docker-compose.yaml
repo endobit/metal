@@ -1,0 +1,91 @@
+services:
+  mkcert:
+    profiles: ['ephemeral']
+    build:
+      dockerfile: services/mkcert/Dockerfile
+    volumes:
+      - metal-certs:/certs
+    command: >
+      sh -c "
+      mkcert -install &&
+      mkcert -cert-file /certs/metal-cert.pem -key-file /certs/metal-key.pem metal
+      "
+
+  etcd:
+    image: bitnami/etcd:latest
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
+      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
+    ports:
+      - '2379'
+    volumes:
+      - etcd-data:/etcd_data
+    command: /opt/bitnami/etcd/bin/etcd --enable-v2=true
+    healthcheck:
+      test: ['CMD', 'etcdctl', 'endpoint', 'health']
+      interval: 5s
+      timeout: 2s
+      retries: 5
+
+  apisix:
+    build:
+      dockerfile: services/apisix/Dockerfile
+    volumes:
+      - metal-certs:/certs
+    ports:
+      - '80:80'
+      - '443:443'
+      - '9180'
+    environment:
+      - ADMIN_KEY='${APISIX_ADMIN:-admin}'
+    healthcheck:
+      test: ['CMD', 'http', 'http://localhost:9180/apisix/admin/routes']
+      interval: 5s
+      timeout: 2s
+      retries: 5
+    depends_on:
+      etcd:
+        condition: service_healthy
+      metal:
+        condition: service_started
+
+  setup-apisix-route:
+    image: curlimages/curl:latest
+    depends_on:
+      apisix:
+        condition: service_healthy
+      metal:
+        condition: service_started
+    command: >
+      sh -c "sleep 10;
+        echo 'Setting up APISIX route...';
+        curl -i -X PUT http://apisix:9180/apisix/admin/routes/1 \
+          -H 'X-API-KEY: ${APISIX_ADMIN:-admin}' \
+          -d '{
+            \"uri\": \"/helloworld.Greeter/SayHello\",
+            \"upstream\": {
+              \"type\": \"roundrobin\",
+              \"scheme\": \"grpc\",
+              \"nodes\": {
+                \"grpc-server:8080\": 1
+              }
+            }
+          }';
+      "
+
+  metal:
+    build:
+      dockerfile: services/metal/Dockerfile
+    expose:
+      - '8080'
+    volumes:
+      - metal-certs:/certs
+      - metal-data:/data
+
+volumes:
+  etcd-data:
+  metal-certs:
+    external: true
+  metal-data:
+    external: true

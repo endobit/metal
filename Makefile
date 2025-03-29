@@ -2,36 +2,34 @@ BUILDER=./.builder
 RULES=go
 include $(BUILDER)/rules.mk
 $(BUILDER)/rules.mk:
-	-go run github.com/endobit/builder@latest init
-
-# sqlc
-
-generate::
-	sqlc generate
-
-lint::
-	sqlc compile
-
-# protobuf
-
-generate::
-	buf generate
-	go generate ./...
-
-lint::
-	cd proto && buf lint
-
-nuke::
-	rm -rf gen
+	-go run endobit.io/builder@latest init
 
 format::
 	buf format -w
 
-# code
+lint::
+	buf lint
+	go tool github.com/sqlc-dev/sqlc/cmd/sqlc compile
+
+generate::
+	buf generate
+	go tool github.com/sqlc-dev/sqlc/cmd/sqlc generate
 
 build::
-	$(GO_BUILD) ./cmd/stackd
-	$(GO_BUILD) ./cmd/stack
+	CGO_ENABLED=0 $(GO_BUILD) -o metald ./services/metal
+
+
+.PHONY: docker-volumes
+docker-volumes: ## creates the cert/data docker volumes (do this once)
+	docker volume create metal-certs || true
+	docker volume create metal-data || true
 
 clean::
-	rm -f stackd stack
+	rm -rf stackd
+
+nuke::
+	rm -rf gen
+	rm -rf internal/data/db
+
+
+

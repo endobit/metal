@@ -1,0 +1,129 @@
+edition = "2023";
+
+package proto.metal.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/endobit/gen/go/proto/metal/v1;metalv1";
+
+
+
+//
+// Create
+//
+
+message CreateClusterRequest {
+  string zone = 1;
+  string name = 2;
+}
+
+//
+// Read
+//
+
+message ReadClustersRequest {
+  string zone = 1;
+  oneof cluster {
+	string name = 2;
+	string glob = 3;
+  }
+}
+
+message ReadClustersResponse {
+  string zone = 1;
+  string name = 2;
+}
+
+//
+// Update
+//
+
+message UpdateClusterRequest {
+  message Fields {
+	string name = 1;
+  }
+
+  string zone = 1;
+  string name = 2;
+  Fields fields = 3;
+}
+
+//
+// Delete
+//
+
+message DeleteClustersRequest {
+  string zone = 1;
+  oneof cluster {
+	string name = 2;
+	string glob = 3;
+  }
+}
+
+
+
+
+//
+// Create
+//
+
+message CreateClusterAttrRequest {
+  string zone = 1;
+  string cluster = 2;
+  string name = 3;
+}
+
+//
+// Read
+//
+
+message ReadClusterAttrsRequest {
+  string zone = 1;
+  string cluster = 2;
+  oneof attr {
+    string name = 3;
+    string glob = 4;
+  }
+}
+
+message ReadClusterAttrsResponse {
+  string zone = 1;
+  string cluster = 2;
+  string name = 3;
+  string value = 4;
+  bool protected = 5;
+}
+
+//
+// Update
+//
+
+message UpdateClusterAttrRequest {
+  message Fields {
+    string name = 1;
+    string value = 2;
+    bool protected = 3;
+  }
+
+  string zone = 1;
+  string cluster = 2;
+  string name = 3;
+  Fields fields = 4;
+}
+
+//
+// Delete
+//
+
+message DeleteClusterAttrsRequest {
+  string zone = 1;
+  string cluster = 2;
+  oneof attr {
+    string name = 3;
+    string glob = 4;
+  }
+}
+
+
+

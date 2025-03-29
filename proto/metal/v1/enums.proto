@@ -1,0 +1,77 @@
+edition = "2023";
+
+package proto.metal.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/endobit/gen/go/proto/metal/v1;metalv1";
+
+
+// From the buf docs -- Protobuf enums use C++ scoping rules,
+// which makes it impossible to have two enums in the same package
+// with the same enum value name
+//
+// So we need the prefixes, and the generated code will have them as well.
+
+enum HostType {
+  HOST_TYPE_UNSPECIFIED = 0;
+  HOST_TYPE_PHYSICAL = 1;
+  HOST_TYPE_BLADE = 2;
+  HOST_TYPE_VIRTUAL = 3;
+  HOST_TYPE_CONTAINER = 4;
+}
+
+enum InterfaceType {
+  INTERFACE_TYPE_UNSPECIFIED = 0;
+  INTERFACE_TYPE_RAW = 1;
+  INTERFACE_TYPE_BOND = 2;
+  INTERFACE_TYPE_VLAN = 3;
+  INTERFACE_TYPE_BRIDGE = 4;
+}
+
+enum BondMode {
+  BOND_MODE_UNSPECIFIED = 0;
+  BOND_MODE_BALANCE_RR = 1;
+  BOND_MODE_ACTIVE_BACKUP = 2;
+  BOND_MODE_BALANCE_XOR = 3;
+  BOND_MODE_BROADCAST = 4;
+  BOND_MODE_802_3AD = 5;
+  BOND_MODE_BALANCE_TLB = 6;
+  BOND_MODE_BALANCE_ALB = 7;
+}
+
+enum SoftwareType {
+  SOFTWARE_TYPE_UNSPECIFIED = 0;
+  SOFTWARE_TYPE_REPOSITORY = 1;
+  SOFTWARE_TYPE_MIRROR = 2;
+  SOFTWARE_TYPE_SECURITY = 3;
+  SOFTWARE_TYPE_IMAGE = 4;
+}
+
+enum Architecture {
+  ARCHITECTURE_UNSPECIFIED = 0;
+  ARCHITECTURE_X86_64 = 1;
+  ARCHITECTURE_ARM64 = 2;
+  ARCHITECTURE_ARM = 3;
+}
+
+enum OSName {
+  OS_NAME_UNSPECIFIED = 0;
+  OS_NAME_LINUX = 1;
+  OS_NAME_WINDOWS = 2;
+  OS_NAME_MACOS = 3;
+}
+
+enum OSFlavor {
+  OS_FLAVOR_UNSPECIFIED = 0;
+  OS_FLAVOR_DEBIAN = 1;
+  OS_FLAVOR_UBUNTU = 2;
+  OS_FLAVOR_CENTOS = 3;
+  OS_FLAVOR_RHEL = 4;
+  OS_FLAVOR_FEDORA = 5;
+  OS_FLAVOR_SUSE = 6;
+  OS_FLAVOR_ROCKY = 7;
+  OS_FLAVOR_ALPINE = 8;
+  OS_FLAVOR_RASPBIAN = 9;
+}

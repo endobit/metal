@@ -1,0 +1,162 @@
+edition = "2023";
+
+package proto.metal.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/metal/v1/enums.proto";
+
+option go_package = "github.com/endobit/gen/go/proto/metal/v1;metalv1";
+
+message CreateSchemaRequest {
+  option features.(pb.go).api_level = API_OPAQUE;
+  Schema schema = 1;
+}
+
+message ReadSchemaRequest {
+  option features.(pb.go).api_level = API_OPAQUE;
+  string zone = 1;
+  string cluster = 2;
+  string host = 3;
+}
+
+message ReadSchemaResponse {
+  option features.(pb.go).api_level = API_OPAQUE;
+  Schema schema = 1;
+}
+
+message Schema {
+  map<string, string> attributes = 1;
+  repeated Make makes = 2;
+  repeated Zone zones = 3;
+  repeated Software software = 4;
+  repeated Stack stacks = 5;
+}
+
+message Software {
+  string name = 1;
+  string type = 2;
+  string url = 3;
+  string key_url = 4;
+  string architecture = 5;
+}
+
+message Stack {
+  string name = 1;
+  string os_name = 2;
+  string os_flavor = 3;
+  string os_version = 4;
+  repeated string software = 5;
+}
+
+message Make {
+  string name = 1;
+  repeated Model models = 2;
+}
+
+message Model {
+  map<string, string> attributes = 1;
+  string name = 2;
+  string architecture = 3;
+}
+
+message Zone {
+  map<string, string> attributes = 1;
+  string name = 2;
+  string time_zone = 3;
+  repeated Network networks = 4;
+  repeated Appliance appliances = 5;
+  repeated Environment environments = 6;
+  repeated Rack racks = 7;
+  repeated Host hosts = 8;		// non-clustered hosts
+  repeated Cluster clusters = 9;
+}
+
+message Network {
+  string name = 1;
+  string address = 2;
+  string gateway = 3;
+  bool pxe = 4;
+  uint32 mtu = 5;
+}
+
+message Cluster {
+  map<string, string> attributes = 1;
+  string name = 2;
+  repeated Host hosts = 3;
+  repeated Switch switches = 5;
+}
+
+message Appliance {
+  map<string, string> attributes = 1;
+  string name = 2;
+}
+
+message Environment {
+  map<string, string> attributes = 1;
+  string name = 2;
+}
+
+message Rack {
+  map<string, string> attributes = 1;
+  string name = 2;
+}
+
+message Host {
+  message Interface {
+    string name = 1;
+    string network = 2;
+    string ip = 3;
+    string mac = 4;
+    bool dhcp = 5;
+    bool pxe = 6;
+    bool management = 7;
+    string type = 8;
+    string bond_mode = 9;
+    repeated string sub_devices = 10;
+  }
+
+  map<string, string> attributes = 1;
+  string name = 2;
+  string make = 3;
+  string model = 4;
+  string environment = 5;
+  string location = 6;
+  string rack = 7;
+  uint32 rank = 8;
+  uint32 slot = 9;
+  string type = 10;
+  string appliance = 11;
+  BMC bmc = 12;
+  repeated Interface interfaces = 13;
+}
+
+message BMC {
+  message Interface {
+    string name = 1;
+    string network = 2;
+    string ip = 3;
+    string mac = 4;
+    bool dhcp = 5;
+  }
+
+  map<string, string> attributes = 1;
+  string name = 2;
+  string model = 3;
+  string environment = 4;
+  repeated Interface interfaces = 5;
+}
+
+message Switch {
+  message Interface {
+    string name = 1;
+  }
+
+  map<string, string> attributes = 1;
+  string name = 2;
+  string model = 3;
+  string environment = 4;
+  string rack = 5;
+  string rank = 6;
+  repeated Interface interfaces = 7;
+}
+

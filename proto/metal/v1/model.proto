@@ -1,0 +1,162 @@
+edition = "2023";
+
+package proto.metal.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/metal/v1/enums.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/endobit/gen/go/proto/metal/v1;metalv1";
+
+
+
+//
+// Create
+//
+
+message CreateMakeRequest {
+  string name = 1;
+}
+
+message CreateModelRequest {
+  string make = 1;
+  string name = 2;
+}
+
+//
+// Read
+//
+
+message ReadMakesRequest {
+  oneof make {
+    string name = 2;
+	string glob = 3;
+  }
+}
+
+message ReadMakesResponse {
+  string name = 1;
+}
+
+message ReadModelsRequest {
+  string make = 1;
+  oneof model {
+    string name = 2;
+	string glob = 3;
+  }
+}
+
+message ReadModelsResponse {
+  string make = 1;
+  string name = 2;
+  Architecture architecture = 3;
+}
+
+//
+// Update
+//
+
+message UpdateMakeRequest {
+  message Fields {
+    string name = 1;
+  }
+
+  string name = 1;
+  Fields fields = 2;
+}
+
+message UpdateModelRequest {
+  message Fields {
+    string name = 2;
+    Architecture architecture = 3;
+  }
+
+  string make = 1;
+  string name = 2;
+  Fields fields = 3;
+}
+
+//
+// Delete
+//
+
+message DeleteMakesRequest {
+  oneof model {
+    string name = 2;
+	string glob = 3;
+  }
+}
+
+message DeleteModelsRequest {
+  string make = 1;
+  oneof model {
+    string name = 2;
+	string glob = 3;
+  }
+}
+
+
+
+//
+// Create
+//
+
+message CreateModelAttrRequest {
+  string make = 1;
+  string model = 2;
+  string name = 3;
+}
+
+//
+// Read
+//
+
+message ReadModelAttrsRequest {
+  string make = 1;
+  string model = 2;
+  oneof attr {
+    string name = 3;
+    string glob = 4;
+  }
+}
+
+message ReadModelAttrsResponse {
+  string make = 1;
+  string model = 2;
+  string name = 3;
+  string value = 4;
+  bool protected = 5;
+}
+
+//
+// Update
+//
+
+message UpdateModelAttrRequest {
+  message Fields {
+    string name = 1;
+    string value = 2;
+    bool protected = 3;
+  }
+
+  string make = 1;
+  string model = 2;
+  string name = 3;
+  Fields fields = 4;
+}
+
+//
+// Delete
+//
+
+message DeleteModelAttrsRequest {
+  string make = 1;
+  string model = 2;
+  oneof attr {
+    string name = 3;
+    string glob = 4;
+  }
+}
+
+
+

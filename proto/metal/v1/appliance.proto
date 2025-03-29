@@ -1,0 +1,129 @@
+edition = "2023";
+
+package proto.metal.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/endobit/gen/go/proto/metal/v1;metalv1";
+
+
+
+//
+// Create
+//
+
+message CreateApplianceRequest {
+  string zone = 1;
+  string name = 2;
+}
+
+//
+// Read
+//
+
+message ReadAppliancesRequest {
+  string zone = 1;
+  oneof appliance {
+	string name = 2;
+	string glob = 3;
+  }
+}
+
+message ReadAppliancesResponse {
+  string zone = 1;
+  string name = 2;
+}
+
+//
+// Update
+//
+
+message UpdateApplianceRequest {
+  message Fields {
+	string name = 1;
+  }
+
+  string zone = 1;
+  string name = 2;
+  Fields fields = 3;
+}
+
+//
+// Delete
+//
+
+message DeleteAppliancesRequest {
+  string zone = 1;
+  oneof appliance {
+	string name = 2;
+	string glob = 3;
+  }
+}
+
+
+
+
+//
+// Create
+//
+
+message CreateApplianceAttrRequest {
+  string zone = 1;
+  string appliance = 2;
+  string name = 3;
+}
+
+//
+// Read
+//
+
+message ReadApplianceAttrsRequest {
+  string zone = 1;
+  string appliance = 2;
+  oneof attr {
+    string name = 3;
+    string glob = 4;
+  }
+}
+
+message ReadApplianceAttrsResponse {
+  string zone = 1;
+  string appliance = 2;
+  string name = 3;
+  string value = 4;
+  bool protected = 5;
+}
+
+//
+// Update
+//
+
+message UpdateApplianceAttrRequest {
+  message Fields {
+    string name = 1;
+    string value = 2;
+    bool protected = 3;
+  }
+
+  string zone = 1;
+  string appliance = 2;
+  string name = 3;
+  Fields fields = 4;
+}
+
+//
+// Delete
+//
+
+message DeleteApplianceAttrsRequest {
+  string zone = 1;
+  string appliance = 2;
+  oneof attr {
+    string name = 3;
+    string glob = 4;
+  }
+}
+
+
+

@@ -1,65 +1,80 @@
-issues:
-  include:
-    - EXC0004
-    - EXC0005
-    - EXC0011
-    - EXC0012
-    - EXC0013
-    - EXC0014
-    - EXC0015
-
+version: "2"
 linters:
   enable:
     - asciicheck
     - bodyclose
-    - depguard
+    - copyloopvar
     - dogsled
     - errname
     - errorlint
-    - exportloopref
     - forcetypeassert
     - gocognit
-    - goconst
     - gocritic
     - gocyclo
-    - gofmt
-    - goimports
     - goprintffuncname
     - gosec
-    - gosimple
     - importas
     - makezero
     - misspell
     - nakedret
     - nestif
     - nilerr
-    - prealloc
+    - nolintlint
     - predeclared
     - revive
+    - staticcheck
     - rowserrcheck
-    - stylecheck
+    - tagliatelle
     - unconvert
     - unparam
     - wastedassign
-linters-settings:
-  errorlint:
-    errorf: true
-  gosec:
-    excludes:
-      - G204
-  gocritic:
-    enabled-tags:
-      - diagnostic
-      - experimental
-      - opinionated
-      - performance
-      - style
-    disabled-checks:
-      - whyNoLint
-    settings:
-      hugeParam:
-        sizeThreshold: 512
-      rangeValCopy:
-        sizeThreshold: 512
-  misspell:
-    locale: US
+  disable:
+    - unused
+  settings:
+    errorlint:
+      errorf: true
+    gocognit:
+      min-complexity: 50
+    gocritic:
+      disabled-checks:
+        - whyNoLint
+        - commentedOutCode
+      enabled-tags:
+        - diagnostic
+        - experimental
+        - opinionated
+        - performance
+        - style
+    gosec:
+      excludes:
+        - G204
+    misspell:
+      locale: US
+    nolintlint:
+      require-explanation: false
+      require-specific: true
+    tagliatelle:
+      case:
+        rules:
+          json: snake
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$

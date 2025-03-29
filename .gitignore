@@ -1,0 +1,5 @@
+/.builder
+/cert.pem
+/key.pem
+/metal.db
+/metald

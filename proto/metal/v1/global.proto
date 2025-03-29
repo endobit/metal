@@ -1,0 +1,64 @@
+edition = "2023";
+
+package proto.metal.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/endobit/gen/go/proto/metal/v1;metalv1";
+
+
+
+//
+// Create
+//
+
+message CreateGlobalAttrRequest {
+  string name = 1;
+}
+
+//
+// Read
+//
+
+message ReadGlobalAttrsRequest {
+  oneof attr {
+    string name = 1;
+    string glob = 2;
+  }
+}
+
+message ReadGlobalAttrsResponse {
+  string name = 1;
+  string value = 2;
+  bool protected = 3;
+}
+
+//
+// Update
+//
+
+message UpdateGlobalAttrRequest {
+  message Fields {
+    string name = 1;
+    string value = 2;
+    bool protected = 3;
+  }
+
+  string name = 1;
+  Fields fields = 2;
+}
+
+//
+// Delete
+//
+
+message DeleteGlobalAttrsRequest {
+  oneof attr {
+    string name = 1;
+    string glob = 2;
+  }
+}
+
+
+

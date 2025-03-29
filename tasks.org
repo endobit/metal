@@ -1,0 +1,31 @@
+* Server Side [13/19]
+- [ ] bmc interfaces
+- [ ] bmcs
+- [X] host interfaces
+- [X] hosts
+- [X] makes
+- [X] non-clustered hosts
+- [ ] software
+- [ ] stacks
+- [ ] switch interfaces
+- [ ] switches
+- [X] appliances
+- [X] clusters
+- [X] clusters
+- [X] environments
+- [X] global attrs
+- [X] models
+- [X] networks
+- [X] racks
+- [X] zones
+  
+  
+* Commands [0/2]
+- [ ] dump
+- [ ] load
+
+* Features [2/2]
+- [X] switch to modernc to get rid of cgo
+- [X] yaml support on dump & load
+
+

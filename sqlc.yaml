@@ -1,9 +1,19 @@
-version: 2
+version: '2'
 sql:
-  - engine: sqlite
-    schema: "sql/schema"
-    queries: "sql/queries"
+  - engine: 'sqlite'
+    queries: 'internal/data/queries'
+    schema: 'internal/data/migrations'
     gen:
       go:
         package: db
-        out: "gen/go/db"
+        out: 'internal/data/db'
+        emit_pointers_for_null_types: true
+        emit_sql_as_comment: true
+        initialisms:
+          - dhcp
+          - id
+          - ip
+          - mac
+          - mtu
+          - pxe
+        query_parameter_limit: 0

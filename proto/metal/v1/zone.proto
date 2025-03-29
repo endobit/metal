@@ -1,0 +1,120 @@
+edition = "2023";
+
+package proto.metal.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/endobit/gen/go/proto/metal/v1;metalv1";
+
+
+
+//
+// Create
+//
+
+message CreateZoneRequest {
+  string name = 1;
+}
+
+//
+// Read
+//
+
+message ReadZonesRequest {
+  oneof zone {
+	string name = 1;
+	string glob = 2;
+  }
+}
+
+message ReadZonesResponse {
+  string name = 1;
+  string time_zone = 2;
+}
+
+//
+// Update
+//
+
+message UpdateZoneRequest {
+  message Fields {
+	string name = 1;
+	string time_zone = 2;
+  }
+
+  string name = 1;
+  Fields fields = 2;
+}
+
+//
+// Delete
+//
+
+message DeleteZonesRequest {
+  oneof zone {
+	string name = 1;
+	string glob = 2;
+  }
+}
+
+
+
+//
+// Create
+//
+
+message CreateZoneAttrRequest {
+  string zone = 1;
+  string name = 2;
+}
+
+//
+// Read
+//
+
+message ReadZoneAttrsRequest {
+  string zone = 1;
+  oneof attr {
+    string name = 2;
+    string glob = 3;
+  }
+}
+
+message ReadZoneAttrsResponse {
+  string zone = 1;
+  string name = 2;
+  string value = 3;
+  bool protected = 4;
+}
+
+//
+// Update
+//
+
+message UpdateZoneAttrRequest {
+  message Fields {
+    string name = 1;
+    string value = 2;
+    bool protected = 3;
+  }
+
+  string zone = 1;
+  string name = 2;
+  Fields fields = 3;
+}
+
+//
+// Delete
+//
+
+message DeleteZoneAttrsRequest {
+  string zone = 1;
+  oneof attr {
+    string name = 2;
+    string glob = 3;
+  }
+}
+
+
+

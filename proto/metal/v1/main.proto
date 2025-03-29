@@ -1,0 +1,161 @@
+edition = "2023";
+
+package proto.metal.v1;
+
+import "proto/metal/v1/schema.proto";
+import "proto/metal/v1/report.proto";
+import "proto/metal/v1/global.proto";
+import "proto/metal/v1/model.proto";
+import "proto/metal/v1/zone.proto";
+import "proto/metal/v1/appliance.proto";
+import "proto/metal/v1/environment.proto";
+import "proto/metal/v1/network.proto";
+import "proto/metal/v1/rack.proto";
+import "proto/metal/v1/cluster.proto";
+import "proto/metal/v1/host.proto";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/endobit/gen/go/proto/metal/v1;metalv1";
+
+
+
+service MetalService {
+
+  rpc CreateSchema(CreateSchemaRequest) returns (google.protobuf.Empty);
+  rpc ReadSchema(ReadSchemaRequest) returns (ReadSchemaResponse);
+
+  rpc ReadReportData(ReadReportDataRequest) returns (ReadReportDataResponse);
+
+  //
+  // Global
+  //
+
+  rpc CreateGlobalAttr(CreateGlobalAttrRequest) returns (google.protobuf.Empty);
+  rpc ReadGlobalAttrs(ReadGlobalAttrsRequest) returns (stream ReadGlobalAttrsResponse);
+  rpc UpdateGlobalAttr(UpdateGlobalAttrRequest) returns (google.protobuf.Empty);
+  rpc DeleteGlobalAttrs(DeleteGlobalAttrsRequest) returns (google.protobuf.Empty);
+
+
+  //
+  // Makes and Models
+  //
+
+  rpc CreateMake(CreateMakeRequest) returns (google.protobuf.Empty);
+  rpc ReadMakes(ReadMakesRequest) returns (stream ReadMakesResponse);
+  rpc UpdateMake(UpdateMakeRequest) returns (google.protobuf.Empty);
+  rpc DeleteMakes(DeleteMakesRequest) returns (google.protobuf.Empty);
+
+  rpc CreateModel(CreateModelRequest) returns (google.protobuf.Empty);
+  rpc ReadModels(ReadModelsRequest) returns (stream ReadModelsResponse);
+  rpc UpdateModel(UpdateModelRequest) returns (google.protobuf.Empty);
+  rpc DeleteModels(DeleteModelsRequest) returns (google.protobuf.Empty);
+
+  rpc CreateModelAttr(CreateModelAttrRequest) returns (google.protobuf.Empty);
+  rpc ReadModelAttrs(ReadModelAttrsRequest) returns (stream ReadModelAttrsResponse);
+  rpc UpdateModelAttr(UpdateModelAttrRequest) returns (google.protobuf.Empty);
+  rpc DeleteModelAttrs(DeleteModelAttrsRequest) returns (google.protobuf.Empty);
+
+  //
+  // Zones
+  //
+
+  rpc CreateZone(CreateZoneRequest) returns (google.protobuf.Empty);
+  rpc ReadZones(ReadZonesRequest) returns (stream ReadZonesResponse);
+  rpc UpdateZone(UpdateZoneRequest) returns (google.protobuf.Empty);
+  rpc DeleteZones(DeleteZonesRequest) returns (google.protobuf.Empty);
+
+  rpc CreateZoneAttr(CreateZoneAttrRequest) returns (google.protobuf.Empty);
+  rpc ReadZoneAttrs(ReadZoneAttrsRequest) returns (stream ReadZoneAttrsResponse);
+  rpc UpdateZoneAttr(UpdateZoneAttrRequest) returns (google.protobuf.Empty);
+  rpc DeleteZoneAttrs(DeleteZoneAttrsRequest) returns (google.protobuf.Empty);
+
+  //
+  // Appliances
+  //
+
+  rpc CreateAppliance(CreateApplianceRequest) returns (google.protobuf.Empty);
+  rpc ReadAppliances(ReadAppliancesRequest) returns (stream ReadAppliancesResponse);
+  rpc UpdateAppliance(UpdateApplianceRequest) returns (google.protobuf.Empty);
+  rpc DeleteAppliances(DeleteAppliancesRequest) returns (google.protobuf.Empty);
+
+  rpc CreateApplianceAttr(CreateApplianceAttrRequest) returns (google.protobuf.Empty);
+  rpc ReadApplianceAttrs(ReadApplianceAttrsRequest) returns (stream ReadApplianceAttrsResponse);
+  rpc UpdateApplianceAttr(UpdateApplianceAttrRequest) returns (google.protobuf.Empty);
+  rpc DeleteApplianceAttrs(DeleteApplianceAttrsRequest) returns (google.protobuf.Empty);
+
+  //
+  // Environments
+  //
+
+  rpc CreateEnvironment(CreateEnvironmentRequest) returns (google.protobuf.Empty);
+  rpc ReadEnvironments(ReadEnvironmentsRequest) returns (stream ReadEnvironmentsResponse);
+  rpc UpdateEnvironment(UpdateEnvironmentRequest) returns (google.protobuf.Empty);
+  rpc DeleteEnvironments(DeleteEnvironmentsRequest) returns (google.protobuf.Empty);
+
+  rpc CreateEnvironmentAttr(CreateEnvironmentAttrRequest) returns (google.protobuf.Empty);
+  rpc ReadEnvironmentAttrs(ReadEnvironmentAttrsRequest) returns (stream ReadEnvironmentAttrsResponse);
+  rpc UpdateEnvironmentAttr(UpdateEnvironmentAttrRequest) returns (google.protobuf.Empty);
+  rpc DeleteEnvironmentAttrs(DeleteEnvironmentAttrsRequest) returns (google.protobuf.Empty);
+
+  //
+  // Networks
+  //
+
+  rpc CreateNetwork(CreateNetworkRequest) returns (google.protobuf.Empty);
+  rpc ReadNetworks(ReadNetworksRequest) returns (stream ReadNetworksResponse);
+  rpc UpdateNetwork(UpdateNetworkRequest) returns (google.protobuf.Empty);
+  rpc DeleteNetworks(DeleteNetworksRequest) returns (google.protobuf.Empty);
+
+  //
+  // Racks
+  //
+
+  rpc CreateRack(CreateRackRequest) returns (google.protobuf.Empty);
+  rpc ReadRacks(ReadRacksRequest) returns (stream ReadRacksResponse);
+  rpc UpdateRack(UpdateRackRequest) returns (google.protobuf.Empty);
+  rpc DeleteRacks(DeleteRacksRequest) returns (google.protobuf.Empty);
+
+  rpc CreateRackAttr(CreateRackAttrRequest) returns (google.protobuf.Empty);
+  rpc ReadRackAttrs(ReadRackAttrsRequest) returns (stream ReadRackAttrsResponse);
+  rpc UpdateRackAttr(UpdateRackAttrRequest) returns (google.protobuf.Empty);
+  rpc DeleteRackAttrs(DeleteRackAttrsRequest) returns (google.protobuf.Empty);
+
+  //
+  // Clusters
+  //
+
+  rpc CreateCluster(CreateClusterRequest) returns (google.protobuf.Empty);
+  rpc ReadClusters(ReadClustersRequest) returns (stream ReadClustersResponse);
+  rpc UpdateCluster(UpdateClusterRequest) returns (google.protobuf.Empty);
+  rpc DeleteClusters(DeleteClustersRequest) returns (google.protobuf.Empty);
+
+  rpc CreateClusterAttr(CreateClusterAttrRequest) returns (google.protobuf.Empty);
+  rpc ReadClusterAttrs(ReadClusterAttrsRequest) returns (stream ReadClusterAttrsResponse);
+  rpc UpdateClusterAttr(UpdateClusterAttrRequest) returns (google.protobuf.Empty);
+  rpc DeleteClusterAttrs(DeleteClusterAttrsRequest) returns (google.protobuf.Empty);
+
+  //
+  // Hosts
+  //
+
+  rpc CreateHost(CreateHostRequest) returns (google.protobuf.Empty);
+  rpc ReadHosts(ReadHostsRequest) returns (stream ReadHostsResponse);
+  rpc UpdateHost(UpdateHostRequest) returns (google.protobuf.Empty);
+  rpc DeleteHosts(DeleteHostsRequest) returns (google.protobuf.Empty);
+
+  rpc CreateHostAttr(CreateHostAttrRequest) returns (google.protobuf.Empty);
+  rpc ReadHostAttrs(ReadHostAttrsRequest) returns (stream ReadHostAttrsResponse);
+  rpc UpdateHostAttr(UpdateHostAttrRequest) returns (google.protobuf.Empty);
+  rpc DeleteHostAttrs(DeleteHostAttrsRequest) returns (google.protobuf.Empty);
+
+  rpc CreateHostInterface(CreateHostInterfaceRequest) returns (google.protobuf.Empty);
+  rpc ReadHostInterfaces(ReadHostInterfacesRequest) returns (stream ReadHostInterfacesResponse);
+  rpc UpdateHostInterface(UpdateHostInterfaceRequest) returns (google.protobuf.Empty);
+  rpc DeleteHostInterfaces(DeleteHostInterfacesRequest) returns (google.protobuf.Empty);
+
+}
+
+
