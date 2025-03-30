@@ -78,8 +78,8 @@ func newRootCmd() *cobra.Command {
 
 			// Create a self-signed certificate if one does not exist.
 
-			certPath := filepath.Join(certDir, "stack-cert.pem")
-			keyPath := filepath.Join(certDir, "stack-key.pem")
+			certPath := filepath.Join(certDir, "cert.pem")
+			keyPath := filepath.Join(certDir, "key.pem")
 			if err := setupCertificates(certPath, keyPath); err != nil {
 				return err
 			}
