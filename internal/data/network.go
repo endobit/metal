@@ -41,7 +41,7 @@ func newNetwork(src db.ReadNetworkRow) Network {
 		},
 		id:      src.ID,
 		Name:    src.Name,
-		Address: value(src.Address),
+		CIDR:    value(src.Address),
 		Gateway: value(src.Gateway),
 		IsPXE:   src.IsPXE != 0,
 		MTU:     mtu,

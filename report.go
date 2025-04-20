@@ -96,6 +96,7 @@ type (
 
 	HostInterface struct {
 		*data.HostInterface
+		Network *data.Network
 	}
 )
 
@@ -104,6 +105,7 @@ type Dumper struct {
 	Filter       Filters
 	ResolveAttrs bool
 	attrCache    attrs
+	networkCache map[data.ZoneScope]map[string]*data.Network
 }
 
 type attrs struct {
@@ -120,6 +122,8 @@ type Filters struct {
 }
 
 func (d *Dumper) Dump(ctx context.Context) (*Report, error) {
+	d.networkCache = make(map[data.ZoneScope]map[string]*data.Network)
+
 	attrs, err := d.GlobalAttrs(ctx)
 	if err != nil {
 		return nil, err
@@ -483,8 +487,15 @@ func (d *Dumper) Networks(ctx context.Context, scope data.ZoneScope) ([]Network,
 		return nil, err
 	}
 
+	if d.networkCache[scope] == nil {
+		d.networkCache[scope] = make(map[string]*data.Network)
+	}
+
 	for i := range rows {
-		networks = append(networks, Network{Network: &rows[i]})
+		network := &rows[i]
+
+		d.networkCache[scope][network.Name] = network
+		networks = append(networks, Network{Network: network})
 	}
 
 	return networks, nil
@@ -670,6 +681,10 @@ func (d *Dumper) HostInterfaces(ctx context.Context, scope data.HostScope) ([]Ho
 		return nil, err
 	}
 
+	zone := data.ZoneScope{
+		Zone: scope.Zone,
+	}
+
 	for i := range rows {
 		iface := &rows[i]
 
@@ -680,7 +695,10 @@ func (d *Dumper) HostInterfaces(ctx context.Context, scope data.HostScope) ([]Ho
 			iface.Type = ShortInterfaceType[iface.Type]
 		}
 
-		ifaces = append(ifaces, HostInterface{HostInterface: iface})
+		ifaces = append(ifaces, HostInterface{
+			HostInterface: iface,
+			Network:       d.networkCache[zone][iface.Network],
+		})
 	}
 
 	return ifaces, nil

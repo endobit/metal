@@ -378,6 +378,162 @@ func (x *Schema) GetStacks() []*Stack {
 	return nil
 }
 
+type ZoneScope struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Zone          *string                `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ZoneScope) Reset() {
+	*x = ZoneScope{}
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ZoneScope) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ZoneScope) ProtoMessage() {}
+
+func (x *ZoneScope) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ZoneScope.ProtoReflect.Descriptor instead.
+func (*ZoneScope) Descriptor() ([]byte, []int) {
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ZoneScope) GetZone() string {
+	if x != nil && x.Zone != nil {
+		return *x.Zone
+	}
+	return ""
+}
+
+type ClusterScope struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Zone          *string                `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	Cluster       *string                `protobuf:"bytes,2,opt,name=cluster" json:"cluster,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ClusterScope) Reset() {
+	*x = ClusterScope{}
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ClusterScope) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ClusterScope) ProtoMessage() {}
+
+func (x *ClusterScope) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ClusterScope.ProtoReflect.Descriptor instead.
+func (*ClusterScope) Descriptor() ([]byte, []int) {
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ClusterScope) GetZone() string {
+	if x != nil && x.Zone != nil {
+		return *x.Zone
+	}
+	return ""
+}
+
+func (x *ClusterScope) GetCluster() string {
+	if x != nil && x.Cluster != nil {
+		return *x.Cluster
+	}
+	return ""
+}
+
+type HostScope struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Zone          *string                `protobuf:"bytes,1,opt,name=zone" json:"zone,omitempty"`
+	Cluster       *string                `protobuf:"bytes,2,opt,name=cluster" json:"cluster,omitempty"`
+	Host          *string                `protobuf:"bytes,3,opt,name=host" json:"host,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *HostScope) Reset() {
+	*x = HostScope{}
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HostScope) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HostScope) ProtoMessage() {}
+
+func (x *HostScope) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HostScope.ProtoReflect.Descriptor instead.
+func (*HostScope) Descriptor() ([]byte, []int) {
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *HostScope) GetZone() string {
+	if x != nil && x.Zone != nil {
+		return *x.Zone
+	}
+	return ""
+}
+
+func (x *HostScope) GetCluster() string {
+	if x != nil && x.Cluster != nil {
+		return *x.Cluster
+	}
+	return ""
+}
+
+func (x *HostScope) GetHost() string {
+	if x != nil && x.Host != nil {
+		return *x.Host
+	}
+	return ""
+}
+
 type Software struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
@@ -391,7 +547,7 @@ type Software struct {
 
 func (x *Software) Reset() {
 	*x = Software{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[4]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -403,7 +559,7 @@ func (x *Software) String() string {
 func (*Software) ProtoMessage() {}
 
 func (x *Software) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[4]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -416,7 +572,7 @@ func (x *Software) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Software.ProtoReflect.Descriptor instead.
 func (*Software) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{4}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Software) GetName() string {
@@ -467,7 +623,7 @@ type Stack struct {
 
 func (x *Stack) Reset() {
 	*x = Stack{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[5]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -479,7 +635,7 @@ func (x *Stack) String() string {
 func (*Stack) ProtoMessage() {}
 
 func (x *Stack) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[5]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -492,7 +648,7 @@ func (x *Stack) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Stack.ProtoReflect.Descriptor instead.
 func (*Stack) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{5}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *Stack) GetName() string {
@@ -540,7 +696,7 @@ type Make struct {
 
 func (x *Make) Reset() {
 	*x = Make{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[6]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -552,7 +708,7 @@ func (x *Make) String() string {
 func (*Make) ProtoMessage() {}
 
 func (x *Make) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[6]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -565,7 +721,7 @@ func (x *Make) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Make.ProtoReflect.Descriptor instead.
 func (*Make) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{6}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *Make) GetName() string {
@@ -593,7 +749,7 @@ type Model struct {
 
 func (x *Model) Reset() {
 	*x = Model{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[7]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -605,7 +761,7 @@ func (x *Model) String() string {
 func (*Model) ProtoMessage() {}
 
 func (x *Model) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[7]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -618,7 +774,7 @@ func (x *Model) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Model.ProtoReflect.Descriptor instead.
 func (*Model) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{7}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *Model) GetAttributes() map[string]string {
@@ -659,7 +815,7 @@ type Zone struct {
 
 func (x *Zone) Reset() {
 	*x = Zone{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[8]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -671,7 +827,7 @@ func (x *Zone) String() string {
 func (*Zone) ProtoMessage() {}
 
 func (x *Zone) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[8]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -684,7 +840,7 @@ func (x *Zone) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Zone.ProtoReflect.Descriptor instead.
 func (*Zone) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{8}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *Zone) GetAttributes() map[string]string {
@@ -752,18 +908,19 @@ func (x *Zone) GetClusters() []*Cluster {
 
 type Network struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	Address       *string                `protobuf:"bytes,2,opt,name=address" json:"address,omitempty"`
-	Gateway       *string                `protobuf:"bytes,3,opt,name=gateway" json:"gateway,omitempty"`
-	Pxe           *bool                  `protobuf:"varint,4,opt,name=pxe" json:"pxe,omitempty"`
-	Mtu           *uint32                `protobuf:"varint,5,opt,name=mtu" json:"mtu,omitempty"`
+	Scope         *ZoneScope             `protobuf:"bytes,1,opt,name=scope" json:"scope,omitempty"`
+	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Address       *string                `protobuf:"bytes,3,opt,name=address" json:"address,omitempty"`
+	Gateway       *string                `protobuf:"bytes,4,opt,name=gateway" json:"gateway,omitempty"`
+	Pxe           *bool                  `protobuf:"varint,5,opt,name=pxe" json:"pxe,omitempty"`
+	Mtu           *uint32                `protobuf:"varint,6,opt,name=mtu" json:"mtu,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Network) Reset() {
 	*x = Network{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[9]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -775,7 +932,7 @@ func (x *Network) String() string {
 func (*Network) ProtoMessage() {}
 
 func (x *Network) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[9]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -788,7 +945,14 @@ func (x *Network) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Network.ProtoReflect.Descriptor instead.
 func (*Network) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{9}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *Network) GetScope() *ZoneScope {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
 }
 
 func (x *Network) GetName() string {
@@ -828,9 +992,10 @@ func (x *Network) GetMtu() uint32 {
 
 type Cluster struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Attributes    map[string]string      `protobuf:"bytes,1,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Hosts         []*Host                `protobuf:"bytes,3,rep,name=hosts" json:"hosts,omitempty"`
+	Scope         *ZoneScope             `protobuf:"bytes,1,opt,name=scope" json:"scope,omitempty"`
+	Attributes    map[string]string      `protobuf:"bytes,2,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	Hosts         []*Host                `protobuf:"bytes,4,rep,name=hosts" json:"hosts,omitempty"`
 	Switches      []*Switch              `protobuf:"bytes,5,rep,name=switches" json:"switches,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -838,7 +1003,7 @@ type Cluster struct {
 
 func (x *Cluster) Reset() {
 	*x = Cluster{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[10]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -850,7 +1015,7 @@ func (x *Cluster) String() string {
 func (*Cluster) ProtoMessage() {}
 
 func (x *Cluster) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[10]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -863,7 +1028,14 @@ func (x *Cluster) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Cluster.ProtoReflect.Descriptor instead.
 func (*Cluster) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{10}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *Cluster) GetScope() *ZoneScope {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
 }
 
 func (x *Cluster) GetAttributes() map[string]string {
@@ -896,15 +1068,16 @@ func (x *Cluster) GetSwitches() []*Switch {
 
 type Appliance struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Attributes    map[string]string      `protobuf:"bytes,1,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Scope         *ClusterScope          `protobuf:"bytes,1,opt,name=scope" json:"scope,omitempty"`
+	Attributes    map[string]string      `protobuf:"bytes,2,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Appliance) Reset() {
 	*x = Appliance{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[11]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -916,7 +1089,7 @@ func (x *Appliance) String() string {
 func (*Appliance) ProtoMessage() {}
 
 func (x *Appliance) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[11]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -929,7 +1102,14 @@ func (x *Appliance) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Appliance.ProtoReflect.Descriptor instead.
 func (*Appliance) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{11}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *Appliance) GetScope() *ClusterScope {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
 }
 
 func (x *Appliance) GetAttributes() map[string]string {
@@ -948,15 +1128,16 @@ func (x *Appliance) GetName() string {
 
 type Environment struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Attributes    map[string]string      `protobuf:"bytes,1,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Scope         *ClusterScope          `protobuf:"bytes,1,opt,name=scope" json:"scope,omitempty"`
+	Attributes    map[string]string      `protobuf:"bytes,2,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Environment) Reset() {
 	*x = Environment{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[12]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -968,7 +1149,7 @@ func (x *Environment) String() string {
 func (*Environment) ProtoMessage() {}
 
 func (x *Environment) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[12]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -981,7 +1162,14 @@ func (x *Environment) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Environment.ProtoReflect.Descriptor instead.
 func (*Environment) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{12}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *Environment) GetScope() *ClusterScope {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
 }
 
 func (x *Environment) GetAttributes() map[string]string {
@@ -1000,15 +1188,16 @@ func (x *Environment) GetName() string {
 
 type Rack struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Attributes    map[string]string      `protobuf:"bytes,1,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Scope         *ClusterScope          `protobuf:"bytes,1,opt,name=scope" json:"scope,omitempty"`
+	Attributes    map[string]string      `protobuf:"bytes,2,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Rack) Reset() {
 	*x = Rack{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[13]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1020,7 +1209,7 @@ func (x *Rack) String() string {
 func (*Rack) ProtoMessage() {}
 
 func (x *Rack) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[13]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1033,7 +1222,14 @@ func (x *Rack) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Rack.ProtoReflect.Descriptor instead.
 func (*Rack) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{13}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *Rack) GetScope() *ClusterScope {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
 }
 
 func (x *Rack) GetAttributes() map[string]string {
@@ -1052,26 +1248,27 @@ func (x *Rack) GetName() string {
 
 type Host struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Attributes    map[string]string      `protobuf:"bytes,1,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Make          *string                `protobuf:"bytes,3,opt,name=make" json:"make,omitempty"`
-	Model         *string                `protobuf:"bytes,4,opt,name=model" json:"model,omitempty"`
-	Environment   *string                `protobuf:"bytes,5,opt,name=environment" json:"environment,omitempty"`
-	Location      *string                `protobuf:"bytes,6,opt,name=location" json:"location,omitempty"`
-	Rack          *string                `protobuf:"bytes,7,opt,name=rack" json:"rack,omitempty"`
-	Rank          *uint32                `protobuf:"varint,8,opt,name=rank" json:"rank,omitempty"`
-	Slot          *uint32                `protobuf:"varint,9,opt,name=slot" json:"slot,omitempty"`
-	Type          *string                `protobuf:"bytes,10,opt,name=type" json:"type,omitempty"`
-	Appliance     *string                `protobuf:"bytes,11,opt,name=appliance" json:"appliance,omitempty"`
-	Bmc           *BMC                   `protobuf:"bytes,12,opt,name=bmc" json:"bmc,omitempty"`
-	Interfaces    []*Host_Interface      `protobuf:"bytes,13,rep,name=interfaces" json:"interfaces,omitempty"`
+	Scope         *ClusterScope          `protobuf:"bytes,1,opt,name=scope" json:"scope,omitempty"`
+	Attributes    map[string]string      `protobuf:"bytes,2,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	Make          *string                `protobuf:"bytes,4,opt,name=make" json:"make,omitempty"`
+	Model         *string                `protobuf:"bytes,5,opt,name=model" json:"model,omitempty"`
+	Environment   *string                `protobuf:"bytes,6,opt,name=environment" json:"environment,omitempty"`
+	Location      *string                `protobuf:"bytes,7,opt,name=location" json:"location,omitempty"`
+	Rack          *string                `protobuf:"bytes,8,opt,name=rack" json:"rack,omitempty"`
+	Rank          *uint32                `protobuf:"varint,9,opt,name=rank" json:"rank,omitempty"`
+	Slot          *uint32                `protobuf:"varint,10,opt,name=slot" json:"slot,omitempty"`
+	Type          *string                `protobuf:"bytes,11,opt,name=type" json:"type,omitempty"`
+	Appliance     *string                `protobuf:"bytes,12,opt,name=appliance" json:"appliance,omitempty"`
+	Bmc           *BMC                   `protobuf:"bytes,13,opt,name=bmc" json:"bmc,omitempty"`
+	Interfaces    []*Host_Interface      `protobuf:"bytes,14,rep,name=interfaces" json:"interfaces,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Host) Reset() {
 	*x = Host{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[14]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1083,7 +1280,7 @@ func (x *Host) String() string {
 func (*Host) ProtoMessage() {}
 
 func (x *Host) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[14]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1096,7 +1293,14 @@ func (x *Host) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Host.ProtoReflect.Descriptor instead.
 func (*Host) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{14}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *Host) GetScope() *ClusterScope {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
 }
 
 func (x *Host) GetAttributes() map[string]string {
@@ -1192,18 +1396,19 @@ func (x *Host) GetInterfaces() []*Host_Interface {
 
 type BMC struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Attributes    map[string]string      `protobuf:"bytes,1,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Model         *string                `protobuf:"bytes,3,opt,name=model" json:"model,omitempty"`
-	Environment   *string                `protobuf:"bytes,4,opt,name=environment" json:"environment,omitempty"`
-	Interfaces    []*BMC_Interface       `protobuf:"bytes,5,rep,name=interfaces" json:"interfaces,omitempty"`
+	Scope         *ClusterScope          `protobuf:"bytes,1,opt,name=scope" json:"scope,omitempty"`
+	Attributes    map[string]string      `protobuf:"bytes,2,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	Model         *string                `protobuf:"bytes,4,opt,name=model" json:"model,omitempty"`
+	Environment   *string                `protobuf:"bytes,5,opt,name=environment" json:"environment,omitempty"`
+	Interfaces    []*BMC_Interface       `protobuf:"bytes,6,rep,name=interfaces" json:"interfaces,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *BMC) Reset() {
 	*x = BMC{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[15]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1215,7 +1420,7 @@ func (x *BMC) String() string {
 func (*BMC) ProtoMessage() {}
 
 func (x *BMC) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[15]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1228,7 +1433,14 @@ func (x *BMC) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BMC.ProtoReflect.Descriptor instead.
 func (*BMC) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{15}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *BMC) GetScope() *ClusterScope {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
 }
 
 func (x *BMC) GetAttributes() map[string]string {
@@ -1268,20 +1480,21 @@ func (x *BMC) GetInterfaces() []*BMC_Interface {
 
 type Switch struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Attributes    map[string]string      `protobuf:"bytes,1,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Model         *string                `protobuf:"bytes,3,opt,name=model" json:"model,omitempty"`
-	Environment   *string                `protobuf:"bytes,4,opt,name=environment" json:"environment,omitempty"`
-	Rack          *string                `protobuf:"bytes,5,opt,name=rack" json:"rack,omitempty"`
-	Rank          *string                `protobuf:"bytes,6,opt,name=rank" json:"rank,omitempty"`
-	Interfaces    []*Switch_Interface    `protobuf:"bytes,7,rep,name=interfaces" json:"interfaces,omitempty"`
+	Scope         *ZoneScope             `protobuf:"bytes,1,opt,name=scope" json:"scope,omitempty"`
+	Attributes    map[string]string      `protobuf:"bytes,2,rep,name=attributes" json:"attributes,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Name          *string                `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	Model         *string                `protobuf:"bytes,4,opt,name=model" json:"model,omitempty"`
+	Environment   *string                `protobuf:"bytes,5,opt,name=environment" json:"environment,omitempty"`
+	Rack          *string                `protobuf:"bytes,6,opt,name=rack" json:"rack,omitempty"`
+	Rank          *string                `protobuf:"bytes,7,opt,name=rank" json:"rank,omitempty"`
+	Interfaces    []*Switch_Interface    `protobuf:"bytes,8,rep,name=interfaces" json:"interfaces,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Switch) Reset() {
 	*x = Switch{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[16]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1293,7 +1506,7 @@ func (x *Switch) String() string {
 func (*Switch) ProtoMessage() {}
 
 func (x *Switch) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[16]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1306,7 +1519,14 @@ func (x *Switch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Switch.ProtoReflect.Descriptor instead.
 func (*Switch) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{16}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *Switch) GetScope() *ZoneScope {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
 }
 
 func (x *Switch) GetAttributes() map[string]string {
@@ -1360,8 +1580,8 @@ func (x *Switch) GetInterfaces() []*Switch_Interface {
 
 type Host_Interface struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	Network       *string                `protobuf:"bytes,2,opt,name=network" json:"network,omitempty"`
+	Scope         *HostScope             `protobuf:"bytes,1,opt,name=scope" json:"scope,omitempty"`
+	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
 	Ip            *string                `protobuf:"bytes,3,opt,name=ip" json:"ip,omitempty"`
 	Mac           *string                `protobuf:"bytes,4,opt,name=mac" json:"mac,omitempty"`
 	Dhcp          *bool                  `protobuf:"varint,5,opt,name=dhcp" json:"dhcp,omitempty"`
@@ -1370,13 +1590,16 @@ type Host_Interface struct {
 	Type          *string                `protobuf:"bytes,8,opt,name=type" json:"type,omitempty"`
 	BondMode      *string                `protobuf:"bytes,9,opt,name=bond_mode,json=bondMode" json:"bond_mode,omitempty"`
 	SubDevices    []string               `protobuf:"bytes,10,rep,name=sub_devices,json=subDevices" json:"sub_devices,omitempty"`
+	Network       *string                `protobuf:"bytes,11,opt,name=network" json:"network,omitempty"`
+	Gateway       *string                `protobuf:"bytes,12,opt,name=gateway" json:"gateway,omitempty"`
+	Mtu           *uint32                `protobuf:"varint,13,opt,name=mtu" json:"mtu,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Host_Interface) Reset() {
 	*x = Host_Interface{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[24]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1388,7 +1611,7 @@ func (x *Host_Interface) String() string {
 func (*Host_Interface) ProtoMessage() {}
 
 func (x *Host_Interface) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[24]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1401,19 +1624,19 @@ func (x *Host_Interface) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Host_Interface.ProtoReflect.Descriptor instead.
 func (*Host_Interface) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{14, 0}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{17, 0}
+}
+
+func (x *Host_Interface) GetScope() *HostScope {
+	if x != nil {
+		return x.Scope
+	}
+	return nil
 }
 
 func (x *Host_Interface) GetName() string {
 	if x != nil && x.Name != nil {
 		return *x.Name
-	}
-	return ""
-}
-
-func (x *Host_Interface) GetNetwork() string {
-	if x != nil && x.Network != nil {
-		return *x.Network
 	}
 	return ""
 }
@@ -1474,6 +1697,27 @@ func (x *Host_Interface) GetSubDevices() []string {
 	return nil
 }
 
+func (x *Host_Interface) GetNetwork() string {
+	if x != nil && x.Network != nil {
+		return *x.Network
+	}
+	return ""
+}
+
+func (x *Host_Interface) GetGateway() string {
+	if x != nil && x.Gateway != nil {
+		return *x.Gateway
+	}
+	return ""
+}
+
+func (x *Host_Interface) GetMtu() uint32 {
+	if x != nil && x.Mtu != nil {
+		return *x.Mtu
+	}
+	return 0
+}
+
 type BMC_Interface struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
@@ -1487,7 +1731,7 @@ type BMC_Interface struct {
 
 func (x *BMC_Interface) Reset() {
 	*x = BMC_Interface{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[26]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1499,7 +1743,7 @@ func (x *BMC_Interface) String() string {
 func (*BMC_Interface) ProtoMessage() {}
 
 func (x *BMC_Interface) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[26]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1512,7 +1756,7 @@ func (x *BMC_Interface) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BMC_Interface.ProtoReflect.Descriptor instead.
 func (*BMC_Interface) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{15, 0}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{18, 0}
 }
 
 func (x *BMC_Interface) GetName() string {
@@ -1559,7 +1803,7 @@ type Switch_Interface struct {
 
 func (x *Switch_Interface) Reset() {
 	*x = Switch_Interface{}
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[28]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1571,7 +1815,7 @@ func (x *Switch_Interface) String() string {
 func (*Switch_Interface) ProtoMessage() {}
 
 func (x *Switch_Interface) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_metal_v1_schema_proto_msgTypes[28]
+	mi := &file_proto_metal_v1_schema_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1584,7 +1828,7 @@ func (x *Switch_Interface) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Switch_Interface.ProtoReflect.Descriptor instead.
 func (*Switch_Interface) Descriptor() ([]byte, []int) {
-	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{16, 0}
+	return file_proto_metal_v1_schema_proto_rawDescGZIP(), []int{19, 0}
 }
 
 func (x *Switch_Interface) GetName() string {
@@ -1617,7 +1861,16 @@ const file_proto_metal_v1_schema_proto_rawDesc = "" +
 	"\x06stacks\x18\x05 \x03(\v2\x15.proto.metal.v1.StackR\x06stacks\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x81\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x1f\n" +
+	"\tZoneScope\x12\x12\n" +
+	"\x04zone\x18\x01 \x01(\tR\x04zone\"<\n" +
+	"\fClusterScope\x12\x12\n" +
+	"\x04zone\x18\x01 \x01(\tR\x04zone\x12\x18\n" +
+	"\acluster\x18\x02 \x01(\tR\acluster\"M\n" +
+	"\tHostScope\x12\x12\n" +
+	"\x04zone\x18\x01 \x01(\tR\x04zone\x12\x18\n" +
+	"\acluster\x18\x02 \x01(\tR\acluster\x12\x12\n" +
+	"\x04host\x18\x03 \x01(\tR\x04host\"\x81\x01\n" +
 	"\bSoftware\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
 	"\x04type\x18\x02 \x01(\tR\x04type\x12\x10\n" +
@@ -1659,69 +1912,75 @@ const file_proto_metal_v1_schema_proto_rawDesc = "" +
 	"\bclusters\x18\t \x03(\v2\x17.proto.metal.v1.ClusterR\bclusters\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"u\n" +
-	"\aNetwork\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
-	"\aaddress\x18\x02 \x01(\tR\aaddress\x12\x18\n" +
-	"\agateway\x18\x03 \x01(\tR\agateway\x12\x10\n" +
-	"\x03pxe\x18\x04 \x01(\bR\x03pxe\x12\x10\n" +
-	"\x03mtu\x18\x05 \x01(\rR\x03mtu\"\x85\x02\n" +
-	"\aCluster\x12G\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xa6\x01\n" +
+	"\aNetwork\x12/\n" +
+	"\x05scope\x18\x01 \x01(\v2\x19.proto.metal.v1.ZoneScopeR\x05scope\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
+	"\aaddress\x18\x03 \x01(\tR\aaddress\x12\x18\n" +
+	"\agateway\x18\x04 \x01(\tR\agateway\x12\x10\n" +
+	"\x03pxe\x18\x05 \x01(\bR\x03pxe\x12\x10\n" +
+	"\x03mtu\x18\x06 \x01(\rR\x03mtu\"\xb6\x02\n" +
+	"\aCluster\x12/\n" +
+	"\x05scope\x18\x01 \x01(\v2\x19.proto.metal.v1.ZoneScopeR\x05scope\x12G\n" +
 	"\n" +
-	"attributes\x18\x01 \x03(\v2'.proto.metal.v1.Cluster.AttributesEntryR\n" +
+	"attributes\x18\x02 \x03(\v2'.proto.metal.v1.Cluster.AttributesEntryR\n" +
 	"attributes\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12*\n" +
-	"\x05hosts\x18\x03 \x03(\v2\x14.proto.metal.v1.HostR\x05hosts\x122\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x12*\n" +
+	"\x05hosts\x18\x04 \x03(\v2\x14.proto.metal.v1.HostR\x05hosts\x122\n" +
 	"\bswitches\x18\x05 \x03(\v2\x16.proto.metal.v1.SwitchR\bswitches\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xa9\x01\n" +
-	"\tAppliance\x12I\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xdd\x01\n" +
+	"\tAppliance\x122\n" +
+	"\x05scope\x18\x01 \x01(\v2\x1c.proto.metal.v1.ClusterScopeR\x05scope\x12I\n" +
 	"\n" +
-	"attributes\x18\x01 \x03(\v2).proto.metal.v1.Appliance.AttributesEntryR\n" +
+	"attributes\x18\x02 \x03(\v2).proto.metal.v1.Appliance.AttributesEntryR\n" +
 	"attributes\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x1a=\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xad\x01\n" +
-	"\vEnvironment\x12K\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xe1\x01\n" +
+	"\vEnvironment\x122\n" +
+	"\x05scope\x18\x01 \x01(\v2\x1c.proto.metal.v1.ClusterScopeR\x05scope\x12K\n" +
 	"\n" +
-	"attributes\x18\x01 \x03(\v2+.proto.metal.v1.Environment.AttributesEntryR\n" +
+	"attributes\x18\x02 \x03(\v2+.proto.metal.v1.Environment.AttributesEntryR\n" +
 	"attributes\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x1a=\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x9f\x01\n" +
-	"\x04Rack\x12D\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xd3\x01\n" +
+	"\x04Rack\x122\n" +
+	"\x05scope\x18\x01 \x01(\v2\x1c.proto.metal.v1.ClusterScopeR\x05scope\x12D\n" +
 	"\n" +
-	"attributes\x18\x01 \x03(\v2$.proto.metal.v1.Rack.AttributesEntryR\n" +
+	"attributes\x18\x02 \x03(\v2$.proto.metal.v1.Rack.AttributesEntryR\n" +
 	"attributes\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x1a=\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xd2\x05\n" +
-	"\x04Host\x12D\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xe3\x06\n" +
+	"\x04Host\x122\n" +
+	"\x05scope\x18\x01 \x01(\v2\x1c.proto.metal.v1.ClusterScopeR\x05scope\x12D\n" +
 	"\n" +
-	"attributes\x18\x01 \x03(\v2$.proto.metal.v1.Host.AttributesEntryR\n" +
+	"attributes\x18\x02 \x03(\v2$.proto.metal.v1.Host.AttributesEntryR\n" +
 	"attributes\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x12\n" +
-	"\x04make\x18\x03 \x01(\tR\x04make\x12\x14\n" +
-	"\x05model\x18\x04 \x01(\tR\x05model\x12 \n" +
-	"\venvironment\x18\x05 \x01(\tR\venvironment\x12\x1a\n" +
-	"\blocation\x18\x06 \x01(\tR\blocation\x12\x12\n" +
-	"\x04rack\x18\a \x01(\tR\x04rack\x12\x12\n" +
-	"\x04rank\x18\b \x01(\rR\x04rank\x12\x12\n" +
-	"\x04slot\x18\t \x01(\rR\x04slot\x12\x12\n" +
-	"\x04type\x18\n" +
-	" \x01(\tR\x04type\x12\x1c\n" +
-	"\tappliance\x18\v \x01(\tR\tappliance\x12%\n" +
-	"\x03bmc\x18\f \x01(\v2\x13.proto.metal.v1.BMCR\x03bmc\x12>\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x12\x12\n" +
+	"\x04make\x18\x04 \x01(\tR\x04make\x12\x14\n" +
+	"\x05model\x18\x05 \x01(\tR\x05model\x12 \n" +
+	"\venvironment\x18\x06 \x01(\tR\venvironment\x12\x1a\n" +
+	"\blocation\x18\a \x01(\tR\blocation\x12\x12\n" +
+	"\x04rack\x18\b \x01(\tR\x04rack\x12\x12\n" +
+	"\x04rank\x18\t \x01(\rR\x04rank\x12\x12\n" +
+	"\x04slot\x18\n" +
+	" \x01(\rR\x04slot\x12\x12\n" +
+	"\x04type\x18\v \x01(\tR\x04type\x12\x1c\n" +
+	"\tappliance\x18\f \x01(\tR\tappliance\x12%\n" +
+	"\x03bmc\x18\r \x01(\v2\x13.proto.metal.v1.BMCR\x03bmc\x12>\n" +
 	"\n" +
-	"interfaces\x18\r \x03(\v2\x1e.proto.metal.v1.Host.InterfaceR\n" +
-	"interfaces\x1a\xf3\x01\n" +
-	"\tInterface\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
-	"\anetwork\x18\x02 \x01(\tR\anetwork\x12\x0e\n" +
+	"interfaces\x18\x0e \x03(\v2\x1e.proto.metal.v1.Host.InterfaceR\n" +
+	"interfaces\x1a\xd0\x02\n" +
+	"\tInterface\x12/\n" +
+	"\x05scope\x18\x01 \x01(\v2\x19.proto.metal.v1.HostScopeR\x05scope\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x0e\n" +
 	"\x02ip\x18\x03 \x01(\tR\x02ip\x12\x10\n" +
 	"\x03mac\x18\x04 \x01(\tR\x03mac\x12\x12\n" +
 	"\x04dhcp\x18\x05 \x01(\bR\x04dhcp\x12\x10\n" +
@@ -1733,19 +1992,23 @@ const file_proto_metal_v1_schema_proto_rawDesc = "" +
 	"\tbond_mode\x18\t \x01(\tR\bbondMode\x12\x1f\n" +
 	"\vsub_devices\x18\n" +
 	" \x03(\tR\n" +
-	"subDevices\x1a=\n" +
+	"subDevices\x12\x18\n" +
+	"\anetwork\x18\v \x01(\tR\anetwork\x12\x18\n" +
+	"\agateway\x18\f \x01(\tR\agateway\x12\x10\n" +
+	"\x03mtu\x18\r \x01(\rR\x03mtu\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x85\x03\n" +
-	"\x03BMC\x12C\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xb9\x03\n" +
+	"\x03BMC\x122\n" +
+	"\x05scope\x18\x01 \x01(\v2\x1c.proto.metal.v1.ClusterScopeR\x05scope\x12C\n" +
 	"\n" +
-	"attributes\x18\x01 \x03(\v2#.proto.metal.v1.BMC.AttributesEntryR\n" +
+	"attributes\x18\x02 \x03(\v2#.proto.metal.v1.BMC.AttributesEntryR\n" +
 	"attributes\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
-	"\x05model\x18\x03 \x01(\tR\x05model\x12 \n" +
-	"\venvironment\x18\x04 \x01(\tR\venvironment\x12=\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x12\x14\n" +
+	"\x05model\x18\x04 \x01(\tR\x05model\x12 \n" +
+	"\venvironment\x18\x05 \x01(\tR\venvironment\x12=\n" +
 	"\n" +
-	"interfaces\x18\x05 \x03(\v2\x1d.proto.metal.v1.BMC.InterfaceR\n" +
+	"interfaces\x18\x06 \x03(\v2\x1d.proto.metal.v1.BMC.InterfaceR\n" +
 	"interfaces\x1ao\n" +
 	"\tInterface\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
@@ -1755,18 +2018,19 @@ const file_proto_metal_v1_schema_proto_rawDesc = "" +
 	"\x04dhcp\x18\x05 \x01(\bR\x04dhcp\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xe6\x02\n" +
-	"\x06Switch\x12F\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x97\x03\n" +
+	"\x06Switch\x12/\n" +
+	"\x05scope\x18\x01 \x01(\v2\x19.proto.metal.v1.ZoneScopeR\x05scope\x12F\n" +
 	"\n" +
-	"attributes\x18\x01 \x03(\v2&.proto.metal.v1.Switch.AttributesEntryR\n" +
+	"attributes\x18\x02 \x03(\v2&.proto.metal.v1.Switch.AttributesEntryR\n" +
 	"attributes\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
-	"\x05model\x18\x03 \x01(\tR\x05model\x12 \n" +
-	"\venvironment\x18\x04 \x01(\tR\venvironment\x12\x12\n" +
-	"\x04rack\x18\x05 \x01(\tR\x04rack\x12\x12\n" +
-	"\x04rank\x18\x06 \x01(\tR\x04rank\x12@\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x12\x14\n" +
+	"\x05model\x18\x04 \x01(\tR\x05model\x12 \n" +
+	"\venvironment\x18\x05 \x01(\tR\venvironment\x12\x12\n" +
+	"\x04rack\x18\x06 \x01(\tR\x04rack\x12\x12\n" +
+	"\x04rank\x18\a \x01(\tR\x04rank\x12@\n" +
 	"\n" +
-	"interfaces\x18\a \x03(\v2 .proto.metal.v1.Switch.InterfaceR\n" +
+	"interfaces\x18\b \x03(\v2 .proto.metal.v1.Switch.InterfaceR\n" +
 	"interfaces\x1a\x1f\n" +
 	"\tInterface\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x1a=\n" +
@@ -1786,74 +2050,86 @@ func file_proto_metal_v1_schema_proto_rawDescGZIP() []byte {
 	return file_proto_metal_v1_schema_proto_rawDescData
 }
 
-var file_proto_metal_v1_schema_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
+var file_proto_metal_v1_schema_proto_msgTypes = make([]protoimpl.MessageInfo, 33)
 var file_proto_metal_v1_schema_proto_goTypes = []any{
 	(*CreateSchemaRequest)(nil), // 0: proto.metal.v1.CreateSchemaRequest
 	(*ReadSchemaRequest)(nil),   // 1: proto.metal.v1.ReadSchemaRequest
 	(*ReadSchemaResponse)(nil),  // 2: proto.metal.v1.ReadSchemaResponse
 	(*Schema)(nil),              // 3: proto.metal.v1.Schema
-	(*Software)(nil),            // 4: proto.metal.v1.Software
-	(*Stack)(nil),               // 5: proto.metal.v1.Stack
-	(*Make)(nil),                // 6: proto.metal.v1.Make
-	(*Model)(nil),               // 7: proto.metal.v1.Model
-	(*Zone)(nil),                // 8: proto.metal.v1.Zone
-	(*Network)(nil),             // 9: proto.metal.v1.Network
-	(*Cluster)(nil),             // 10: proto.metal.v1.Cluster
-	(*Appliance)(nil),           // 11: proto.metal.v1.Appliance
-	(*Environment)(nil),         // 12: proto.metal.v1.Environment
-	(*Rack)(nil),                // 13: proto.metal.v1.Rack
-	(*Host)(nil),                // 14: proto.metal.v1.Host
-	(*BMC)(nil),                 // 15: proto.metal.v1.BMC
-	(*Switch)(nil),              // 16: proto.metal.v1.Switch
-	nil,                         // 17: proto.metal.v1.Schema.AttributesEntry
-	nil,                         // 18: proto.metal.v1.Model.AttributesEntry
-	nil,                         // 19: proto.metal.v1.Zone.AttributesEntry
-	nil,                         // 20: proto.metal.v1.Cluster.AttributesEntry
-	nil,                         // 21: proto.metal.v1.Appliance.AttributesEntry
-	nil,                         // 22: proto.metal.v1.Environment.AttributesEntry
-	nil,                         // 23: proto.metal.v1.Rack.AttributesEntry
-	(*Host_Interface)(nil),      // 24: proto.metal.v1.Host.Interface
-	nil,                         // 25: proto.metal.v1.Host.AttributesEntry
-	(*BMC_Interface)(nil),       // 26: proto.metal.v1.BMC.Interface
-	nil,                         // 27: proto.metal.v1.BMC.AttributesEntry
-	(*Switch_Interface)(nil),    // 28: proto.metal.v1.Switch.Interface
-	nil,                         // 29: proto.metal.v1.Switch.AttributesEntry
+	(*ZoneScope)(nil),           // 4: proto.metal.v1.ZoneScope
+	(*ClusterScope)(nil),        // 5: proto.metal.v1.ClusterScope
+	(*HostScope)(nil),           // 6: proto.metal.v1.HostScope
+	(*Software)(nil),            // 7: proto.metal.v1.Software
+	(*Stack)(nil),               // 8: proto.metal.v1.Stack
+	(*Make)(nil),                // 9: proto.metal.v1.Make
+	(*Model)(nil),               // 10: proto.metal.v1.Model
+	(*Zone)(nil),                // 11: proto.metal.v1.Zone
+	(*Network)(nil),             // 12: proto.metal.v1.Network
+	(*Cluster)(nil),             // 13: proto.metal.v1.Cluster
+	(*Appliance)(nil),           // 14: proto.metal.v1.Appliance
+	(*Environment)(nil),         // 15: proto.metal.v1.Environment
+	(*Rack)(nil),                // 16: proto.metal.v1.Rack
+	(*Host)(nil),                // 17: proto.metal.v1.Host
+	(*BMC)(nil),                 // 18: proto.metal.v1.BMC
+	(*Switch)(nil),              // 19: proto.metal.v1.Switch
+	nil,                         // 20: proto.metal.v1.Schema.AttributesEntry
+	nil,                         // 21: proto.metal.v1.Model.AttributesEntry
+	nil,                         // 22: proto.metal.v1.Zone.AttributesEntry
+	nil,                         // 23: proto.metal.v1.Cluster.AttributesEntry
+	nil,                         // 24: proto.metal.v1.Appliance.AttributesEntry
+	nil,                         // 25: proto.metal.v1.Environment.AttributesEntry
+	nil,                         // 26: proto.metal.v1.Rack.AttributesEntry
+	(*Host_Interface)(nil),      // 27: proto.metal.v1.Host.Interface
+	nil,                         // 28: proto.metal.v1.Host.AttributesEntry
+	(*BMC_Interface)(nil),       // 29: proto.metal.v1.BMC.Interface
+	nil,                         // 30: proto.metal.v1.BMC.AttributesEntry
+	(*Switch_Interface)(nil),    // 31: proto.metal.v1.Switch.Interface
+	nil,                         // 32: proto.metal.v1.Switch.AttributesEntry
 }
 var file_proto_metal_v1_schema_proto_depIdxs = []int32{
 	3,  // 0: proto.metal.v1.CreateSchemaRequest.schema:type_name -> proto.metal.v1.Schema
 	3,  // 1: proto.metal.v1.ReadSchemaResponse.schema:type_name -> proto.metal.v1.Schema
-	17, // 2: proto.metal.v1.Schema.attributes:type_name -> proto.metal.v1.Schema.AttributesEntry
-	6,  // 3: proto.metal.v1.Schema.makes:type_name -> proto.metal.v1.Make
-	8,  // 4: proto.metal.v1.Schema.zones:type_name -> proto.metal.v1.Zone
-	4,  // 5: proto.metal.v1.Schema.software:type_name -> proto.metal.v1.Software
-	5,  // 6: proto.metal.v1.Schema.stacks:type_name -> proto.metal.v1.Stack
-	7,  // 7: proto.metal.v1.Make.models:type_name -> proto.metal.v1.Model
-	18, // 8: proto.metal.v1.Model.attributes:type_name -> proto.metal.v1.Model.AttributesEntry
-	19, // 9: proto.metal.v1.Zone.attributes:type_name -> proto.metal.v1.Zone.AttributesEntry
-	9,  // 10: proto.metal.v1.Zone.networks:type_name -> proto.metal.v1.Network
-	11, // 11: proto.metal.v1.Zone.appliances:type_name -> proto.metal.v1.Appliance
-	12, // 12: proto.metal.v1.Zone.environments:type_name -> proto.metal.v1.Environment
-	13, // 13: proto.metal.v1.Zone.racks:type_name -> proto.metal.v1.Rack
-	14, // 14: proto.metal.v1.Zone.hosts:type_name -> proto.metal.v1.Host
-	10, // 15: proto.metal.v1.Zone.clusters:type_name -> proto.metal.v1.Cluster
-	20, // 16: proto.metal.v1.Cluster.attributes:type_name -> proto.metal.v1.Cluster.AttributesEntry
-	14, // 17: proto.metal.v1.Cluster.hosts:type_name -> proto.metal.v1.Host
-	16, // 18: proto.metal.v1.Cluster.switches:type_name -> proto.metal.v1.Switch
-	21, // 19: proto.metal.v1.Appliance.attributes:type_name -> proto.metal.v1.Appliance.AttributesEntry
-	22, // 20: proto.metal.v1.Environment.attributes:type_name -> proto.metal.v1.Environment.AttributesEntry
-	23, // 21: proto.metal.v1.Rack.attributes:type_name -> proto.metal.v1.Rack.AttributesEntry
-	25, // 22: proto.metal.v1.Host.attributes:type_name -> proto.metal.v1.Host.AttributesEntry
-	15, // 23: proto.metal.v1.Host.bmc:type_name -> proto.metal.v1.BMC
-	24, // 24: proto.metal.v1.Host.interfaces:type_name -> proto.metal.v1.Host.Interface
-	27, // 25: proto.metal.v1.BMC.attributes:type_name -> proto.metal.v1.BMC.AttributesEntry
-	26, // 26: proto.metal.v1.BMC.interfaces:type_name -> proto.metal.v1.BMC.Interface
-	29, // 27: proto.metal.v1.Switch.attributes:type_name -> proto.metal.v1.Switch.AttributesEntry
-	28, // 28: proto.metal.v1.Switch.interfaces:type_name -> proto.metal.v1.Switch.Interface
-	29, // [29:29] is the sub-list for method output_type
-	29, // [29:29] is the sub-list for method input_type
-	29, // [29:29] is the sub-list for extension type_name
-	29, // [29:29] is the sub-list for extension extendee
-	0,  // [0:29] is the sub-list for field type_name
+	20, // 2: proto.metal.v1.Schema.attributes:type_name -> proto.metal.v1.Schema.AttributesEntry
+	9,  // 3: proto.metal.v1.Schema.makes:type_name -> proto.metal.v1.Make
+	11, // 4: proto.metal.v1.Schema.zones:type_name -> proto.metal.v1.Zone
+	7,  // 5: proto.metal.v1.Schema.software:type_name -> proto.metal.v1.Software
+	8,  // 6: proto.metal.v1.Schema.stacks:type_name -> proto.metal.v1.Stack
+	10, // 7: proto.metal.v1.Make.models:type_name -> proto.metal.v1.Model
+	21, // 8: proto.metal.v1.Model.attributes:type_name -> proto.metal.v1.Model.AttributesEntry
+	22, // 9: proto.metal.v1.Zone.attributes:type_name -> proto.metal.v1.Zone.AttributesEntry
+	12, // 10: proto.metal.v1.Zone.networks:type_name -> proto.metal.v1.Network
+	14, // 11: proto.metal.v1.Zone.appliances:type_name -> proto.metal.v1.Appliance
+	15, // 12: proto.metal.v1.Zone.environments:type_name -> proto.metal.v1.Environment
+	16, // 13: proto.metal.v1.Zone.racks:type_name -> proto.metal.v1.Rack
+	17, // 14: proto.metal.v1.Zone.hosts:type_name -> proto.metal.v1.Host
+	13, // 15: proto.metal.v1.Zone.clusters:type_name -> proto.metal.v1.Cluster
+	4,  // 16: proto.metal.v1.Network.scope:type_name -> proto.metal.v1.ZoneScope
+	4,  // 17: proto.metal.v1.Cluster.scope:type_name -> proto.metal.v1.ZoneScope
+	23, // 18: proto.metal.v1.Cluster.attributes:type_name -> proto.metal.v1.Cluster.AttributesEntry
+	17, // 19: proto.metal.v1.Cluster.hosts:type_name -> proto.metal.v1.Host
+	19, // 20: proto.metal.v1.Cluster.switches:type_name -> proto.metal.v1.Switch
+	5,  // 21: proto.metal.v1.Appliance.scope:type_name -> proto.metal.v1.ClusterScope
+	24, // 22: proto.metal.v1.Appliance.attributes:type_name -> proto.metal.v1.Appliance.AttributesEntry
+	5,  // 23: proto.metal.v1.Environment.scope:type_name -> proto.metal.v1.ClusterScope
+	25, // 24: proto.metal.v1.Environment.attributes:type_name -> proto.metal.v1.Environment.AttributesEntry
+	5,  // 25: proto.metal.v1.Rack.scope:type_name -> proto.metal.v1.ClusterScope
+	26, // 26: proto.metal.v1.Rack.attributes:type_name -> proto.metal.v1.Rack.AttributesEntry
+	5,  // 27: proto.metal.v1.Host.scope:type_name -> proto.metal.v1.ClusterScope
+	28, // 28: proto.metal.v1.Host.attributes:type_name -> proto.metal.v1.Host.AttributesEntry
+	18, // 29: proto.metal.v1.Host.bmc:type_name -> proto.metal.v1.BMC
+	27, // 30: proto.metal.v1.Host.interfaces:type_name -> proto.metal.v1.Host.Interface
+	5,  // 31: proto.metal.v1.BMC.scope:type_name -> proto.metal.v1.ClusterScope
+	30, // 32: proto.metal.v1.BMC.attributes:type_name -> proto.metal.v1.BMC.AttributesEntry
+	29, // 33: proto.metal.v1.BMC.interfaces:type_name -> proto.metal.v1.BMC.Interface
+	4,  // 34: proto.metal.v1.Switch.scope:type_name -> proto.metal.v1.ZoneScope
+	32, // 35: proto.metal.v1.Switch.attributes:type_name -> proto.metal.v1.Switch.AttributesEntry
+	31, // 36: proto.metal.v1.Switch.interfaces:type_name -> proto.metal.v1.Switch.Interface
+	6,  // 37: proto.metal.v1.Host.Interface.scope:type_name -> proto.metal.v1.HostScope
+	38, // [38:38] is the sub-list for method output_type
+	38, // [38:38] is the sub-list for method input_type
+	38, // [38:38] is the sub-list for extension type_name
+	38, // [38:38] is the sub-list for extension extendee
+	0,  // [0:38] is the sub-list for field type_name
 }
 
 func init() { file_proto_metal_v1_schema_proto_init() }
@@ -1868,7 +2144,7 @@ func file_proto_metal_v1_schema_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_metal_v1_schema_proto_rawDesc), len(file_proto_metal_v1_schema_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   30,
+			NumMessages:   33,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

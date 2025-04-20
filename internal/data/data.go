@@ -184,7 +184,7 @@ type (
 	Network struct {
 		ZoneScope
 		Name    string
-		Address string
+		CIDR    string
 		Gateway string
 		IsPXE   bool
 		MTU     uint32
@@ -274,15 +274,14 @@ type (
 		HostScope
 		Name            string
 		IP              string
+		Network         string
 		MAC             string
-		Netmask         string
 		IsDHCP          bool
 		IsPXE           bool
 		IsManagement    bool
 		Type            string
 		BondMode        string
 		MasterInterface string
-		Network         string
 		id              int64
 	}
 

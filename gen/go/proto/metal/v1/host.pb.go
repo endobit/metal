@@ -2989,7 +2989,6 @@ type ReadHostInterfacesResponse struct {
 	xxx_hidden_Name        *string                `protobuf:"bytes,4,opt,name=name"`
 	xxx_hidden_Ip          *string                `protobuf:"bytes,5,opt,name=ip"`
 	xxx_hidden_Mac         *string                `protobuf:"bytes,6,opt,name=mac"`
-	xxx_hidden_Netmask     *string                `protobuf:"bytes,7,opt,name=netmask"`
 	xxx_hidden_Dhcp        bool                   `protobuf:"varint,8,opt,name=dhcp"`
 	xxx_hidden_Pxe         bool                   `protobuf:"varint,9,opt,name=pxe"`
 	xxx_hidden_Management  bool                   `protobuf:"varint,10,opt,name=management"`
@@ -3088,16 +3087,6 @@ func (x *ReadHostInterfacesResponse) GetMac() string {
 	return ""
 }
 
-func (x *ReadHostInterfacesResponse) GetNetmask() string {
-	if x != nil {
-		if x.xxx_hidden_Netmask != nil {
-			return *x.xxx_hidden_Netmask
-		}
-		return ""
-	}
-	return ""
-}
-
 func (x *ReadHostInterfacesResponse) GetDhcp() bool {
 	if x != nil {
 		return x.xxx_hidden_Dhcp
@@ -3121,7 +3110,7 @@ func (x *ReadHostInterfacesResponse) GetManagement() bool {
 
 func (x *ReadHostInterfacesResponse) GetType() InterfaceType {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 10) {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
 			return x.xxx_hidden_Type
 		}
 	}
@@ -3130,7 +3119,7 @@ func (x *ReadHostInterfacesResponse) GetType() InterfaceType {
 
 func (x *ReadHostInterfacesResponse) GetBondMode() BondMode {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 11) {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 10) {
 			return x.xxx_hidden_BondMode
 		}
 	}
@@ -3159,72 +3148,67 @@ func (x *ReadHostInterfacesResponse) GetNetwork() string {
 
 func (x *ReadHostInterfacesResponse) SetZone(v string) {
 	x.xxx_hidden_Zone = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetCluster(v string) {
 	x.xxx_hidden_Cluster = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetHost(v string) {
 	x.xxx_hidden_Host = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetName(v string) {
 	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetIp(v string) {
 	x.xxx_hidden_Ip = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetMac(v string) {
 	x.xxx_hidden_Mac = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 14)
-}
-
-func (x *ReadHostInterfacesResponse) SetNetmask(v string) {
-	x.xxx_hidden_Netmask = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetDhcp(v bool) {
 	x.xxx_hidden_Dhcp = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetPxe(v bool) {
 	x.xxx_hidden_Pxe = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetManagement(v bool) {
 	x.xxx_hidden_Management = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetType(v InterfaceType) {
 	x.xxx_hidden_Type = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 10, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetBondMode(v BondMode) {
 	x.xxx_hidden_BondMode = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 11, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 10, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetMaster(v string) {
 	x.xxx_hidden_Master = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 12, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 11, 13)
 }
 
 func (x *ReadHostInterfacesResponse) SetNetwork(v string) {
 	x.xxx_hidden_Network = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 13, 14)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 12, 13)
 }
 
 func (x *ReadHostInterfacesResponse) HasZone() bool {
@@ -3269,60 +3253,53 @@ func (x *ReadHostInterfacesResponse) HasMac() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
-func (x *ReadHostInterfacesResponse) HasNetmask() bool {
+func (x *ReadHostInterfacesResponse) HasDhcp() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
 }
 
-func (x *ReadHostInterfacesResponse) HasDhcp() bool {
+func (x *ReadHostInterfacesResponse) HasPxe() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
 }
 
-func (x *ReadHostInterfacesResponse) HasPxe() bool {
+func (x *ReadHostInterfacesResponse) HasManagement() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
 }
 
-func (x *ReadHostInterfacesResponse) HasManagement() bool {
+func (x *ReadHostInterfacesResponse) HasType() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
 }
 
-func (x *ReadHostInterfacesResponse) HasType() bool {
+func (x *ReadHostInterfacesResponse) HasBondMode() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 10)
 }
 
-func (x *ReadHostInterfacesResponse) HasBondMode() bool {
+func (x *ReadHostInterfacesResponse) HasMaster() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 11)
 }
 
-func (x *ReadHostInterfacesResponse) HasMaster() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 12)
-}
-
 func (x *ReadHostInterfacesResponse) HasNetwork() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 13)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 12)
 }
 
 func (x *ReadHostInterfacesResponse) ClearZone() {
@@ -3355,43 +3332,38 @@ func (x *ReadHostInterfacesResponse) ClearMac() {
 	x.xxx_hidden_Mac = nil
 }
 
-func (x *ReadHostInterfacesResponse) ClearNetmask() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Netmask = nil
-}
-
 func (x *ReadHostInterfacesResponse) ClearDhcp() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
 	x.xxx_hidden_Dhcp = false
 }
 
 func (x *ReadHostInterfacesResponse) ClearPxe() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
 	x.xxx_hidden_Pxe = false
 }
 
 func (x *ReadHostInterfacesResponse) ClearManagement() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
 	x.xxx_hidden_Management = false
 }
 
 func (x *ReadHostInterfacesResponse) ClearType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 10)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
 	x.xxx_hidden_Type = InterfaceType_INTERFACE_TYPE_UNSPECIFIED
 }
 
 func (x *ReadHostInterfacesResponse) ClearBondMode() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 11)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 10)
 	x.xxx_hidden_BondMode = BondMode_BOND_MODE_UNSPECIFIED
 }
 
 func (x *ReadHostInterfacesResponse) ClearMaster() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 12)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 11)
 	x.xxx_hidden_Master = nil
 }
 
 func (x *ReadHostInterfacesResponse) ClearNetwork() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 13)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 12)
 	x.xxx_hidden_Network = nil
 }
 
@@ -3404,7 +3376,6 @@ type ReadHostInterfacesResponse_builder struct {
 	Name       *string
 	Ip         *string
 	Mac        *string
-	Netmask    *string
 	Dhcp       *bool
 	Pxe        *bool
 	Management *bool
@@ -3419,59 +3390,55 @@ func (b0 ReadHostInterfacesResponse_builder) Build() *ReadHostInterfacesResponse
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.Zone != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 13)
 		x.xxx_hidden_Zone = b.Zone
 	}
 	if b.Cluster != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 13)
 		x.xxx_hidden_Cluster = b.Cluster
 	}
 	if b.Host != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 13)
 		x.xxx_hidden_Host = b.Host
 	}
 	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 13)
 		x.xxx_hidden_Name = b.Name
 	}
 	if b.Ip != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 13)
 		x.xxx_hidden_Ip = b.Ip
 	}
 	if b.Mac != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 13)
 		x.xxx_hidden_Mac = b.Mac
 	}
-	if b.Netmask != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 14)
-		x.xxx_hidden_Netmask = b.Netmask
-	}
 	if b.Dhcp != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 13)
 		x.xxx_hidden_Dhcp = *b.Dhcp
 	}
 	if b.Pxe != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 13)
 		x.xxx_hidden_Pxe = *b.Pxe
 	}
 	if b.Management != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 13)
 		x.xxx_hidden_Management = *b.Management
 	}
 	if b.Type != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 10, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 13)
 		x.xxx_hidden_Type = *b.Type
 	}
 	if b.BondMode != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 11, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 10, 13)
 		x.xxx_hidden_BondMode = *b.BondMode
 	}
 	if b.Master != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 12, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 11, 13)
 		x.xxx_hidden_Master = b.Master
 	}
 	if b.Network != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 13, 14)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 12, 13)
 		x.xxx_hidden_Network = b.Network
 	}
 	return m0
@@ -5309,15 +5276,14 @@ const file_proto_metal_v1_host_proto_rawDesc = "" +
 	"\x04host\x18\x03 \x01(\tR\x04host\x12\x14\n" +
 	"\x04name\x18\x04 \x01(\tH\x00R\x04name\x12\x14\n" +
 	"\x04glob\x18\x05 \x01(\tH\x00R\x04globB\v\n" +
-	"\tinterface\"\x90\x03\n" +
+	"\tinterface\"\xf6\x02\n" +
 	"\x1aReadHostInterfacesResponse\x12\x12\n" +
 	"\x04zone\x18\x01 \x01(\tR\x04zone\x12\x18\n" +
 	"\acluster\x18\x02 \x01(\tR\acluster\x12\x12\n" +
 	"\x04host\x18\x03 \x01(\tR\x04host\x12\x12\n" +
 	"\x04name\x18\x04 \x01(\tR\x04name\x12\x0e\n" +
 	"\x02ip\x18\x05 \x01(\tR\x02ip\x12\x10\n" +
-	"\x03mac\x18\x06 \x01(\tR\x03mac\x12\x18\n" +
-	"\anetmask\x18\a \x01(\tR\anetmask\x12\x12\n" +
+	"\x03mac\x18\x06 \x01(\tR\x03mac\x12\x12\n" +
 	"\x04dhcp\x18\b \x01(\bR\x04dhcp\x12\x10\n" +
 	"\x03pxe\x18\t \x01(\bR\x03pxe\x12\x1e\n" +
 	"\n" +

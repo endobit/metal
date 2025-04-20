@@ -179,7 +179,7 @@ func newRack(src *metal.Rack) *pb.Rack {
 func newNetwork(src *metal.Network) *pb.Network {
 	return &pb.Network{
 		Name:    &src.Name,
-		Address: data.Optional(src.Address),
+		Address: data.Optional(src.CIDR),
 		Gateway: data.Optional(src.Gateway),
 		Pxe:     data.Optional(src.IsPXE),
 		Mtu:     data.Optional(src.MTU),
@@ -189,7 +189,6 @@ func newNetwork(src *metal.Network) *pb.Network {
 func newHostInterface(src *metal.HostInterface) *pb.Host_Interface {
 	iface := pb.Host_Interface{
 		Name:       &src.Name,
-		Network:    data.Optional(src.Network),
 		Ip:         data.Optional(src.IP),
 		Mac:        data.Optional(src.MAC),
 		Dhcp:       data.Optional(src.IsDHCP),
@@ -197,6 +196,12 @@ func newHostInterface(src *metal.HostInterface) *pb.Host_Interface {
 		Management: data.Optional(src.IsManagement),
 		Type:       data.Optional(src.Type),
 		BondMode:   data.Optional(src.BondMode),
+	}
+
+	if src.Network != nil {
+		iface.Network = data.Optional(src.Network.CIDR)
+		iface.Gateway = data.Optional(src.Network.Gateway)
+		iface.Mtu = data.Optional(src.Network.MTU)
 	}
 
 	return &iface

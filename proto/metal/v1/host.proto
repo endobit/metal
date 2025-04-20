@@ -206,7 +206,6 @@ message ReadHostInterfacesResponse {
   string name = 4;
   string ip = 5;
   string mac = 6;
-  string netmask = 7;
   bool dhcp = 8;
   bool pxe = 9;
   bool management = 10;

@@ -266,7 +266,6 @@ func newHostInterface(src *db.ReadHostInterfaceRow) HostInterface {
 		Name:            src.Name,
 		IP:              value(src.IP),
 		MAC:             value(src.MAC),
-		Netmask:         value(src.Netmask),
 		IsDHCP:          src.IsDHCP == 1,
 		IsPXE:           src.IsPXE == 1,
 		IsManagement:    src.IsManagement == 1,

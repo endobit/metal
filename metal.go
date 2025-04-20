@@ -37,6 +37,8 @@ type Client struct {
 	conn     *grpc.ClientConn
 }
 
+// NewClient creates a new metal client with the given gRPC connection and
+// logger. If the logger is nil, it will use the default logger.
 func NewClient(conn *grpc.ClientConn, logger *slog.Logger) *Client {
 	if logger == nil {
 		logger = slog.Default()

@@ -473,7 +473,6 @@ func (s *Service) ReadHostInterfaces(in *pb.ReadHostInterfacesRequest, out grpc.
 			Name:       &rows[i].Name,
 			Ip:         &rows[i].IP,
 			Mac:        &rows[i].MAC,
-			Netmask:    &rows[i].Netmask,
 			Dhcp:       &rows[i].IsDHCP,
 			Pxe:        &rows[i].IsPXE,
 			Management: &rows[i].IsManagement,

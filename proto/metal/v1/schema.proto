@@ -32,6 +32,21 @@ message Schema {
   repeated Stack stacks = 5;
 }
 
+message ZoneScope {
+  string zone = 1;
+}
+
+message ClusterScope {
+  string zone = 1;
+  string cluster = 2;
+}
+
+message HostScope {
+  string zone = 1;
+  string cluster = 2;
+  string host = 3;
+}
+
 message Software {
   string name = 1;
   string type = 2;
@@ -72,39 +87,44 @@ message Zone {
 }
 
 message Network {
-  string name = 1;
-  string address = 2;
-  string gateway = 3;
-  bool pxe = 4;
-  uint32 mtu = 5;
+  ZoneScope scope = 1;
+  string name = 2;
+  string address = 3;
+  string gateway = 4;
+  bool pxe = 5;
+  uint32 mtu = 6;
 }
 
 message Cluster {
-  map<string, string> attributes = 1;
-  string name = 2;
-  repeated Host hosts = 3;
+  ZoneScope scope = 1;
+  map<string, string> attributes = 2;
+  string name = 3;
+  repeated Host hosts = 4;
   repeated Switch switches = 5;
 }
 
 message Appliance {
-  map<string, string> attributes = 1;
-  string name = 2;
+  ClusterScope scope = 1;
+  map<string, string> attributes = 2;
+  string name = 3;
 }
 
 message Environment {
-  map<string, string> attributes = 1;
-  string name = 2;
+  ClusterScope scope = 1;
+  map<string, string> attributes = 2;
+  string name = 3;
 }
 
 message Rack {
-  map<string, string> attributes = 1;
-  string name = 2;
+  ClusterScope scope = 1;
+  map<string, string> attributes = 2;
+  string name = 3;
 }
 
 message Host {
   message Interface {
-    string name = 1;
-    string network = 2;
+    HostScope scope = 1;
+    string name = 2;
     string ip = 3;
     string mac = 4;
     bool dhcp = 5;
@@ -113,21 +133,25 @@ message Host {
     string type = 8;
     string bond_mode = 9;
     repeated string sub_devices = 10;
+    string network = 11;
+    string gateway = 12;
+    uint32 mtu = 13;
   }
 
-  map<string, string> attributes = 1;
-  string name = 2;
-  string make = 3;
-  string model = 4;
-  string environment = 5;
-  string location = 6;
-  string rack = 7;
-  uint32 rank = 8;
-  uint32 slot = 9;
-  string type = 10;
-  string appliance = 11;
-  BMC bmc = 12;
-  repeated Interface interfaces = 13;
+  ClusterScope scope = 1;
+  map<string, string> attributes = 2;
+  string name = 3;
+  string make = 4;
+  string model = 5;
+  string environment = 6;
+  string location = 7;
+  string rack = 8;
+  uint32 rank = 9;
+  uint32 slot = 10;
+  string type = 11;
+  string appliance = 12;
+  BMC bmc = 13;
+  repeated Interface interfaces = 14;
 }
 
 message BMC {
@@ -139,11 +163,12 @@ message BMC {
     bool dhcp = 5;
   }
 
-  map<string, string> attributes = 1;
-  string name = 2;
-  string model = 3;
-  string environment = 4;
-  repeated Interface interfaces = 5;
+  ClusterScope scope = 1;
+  map<string, string> attributes = 2;
+  string name = 3;
+  string model = 4;
+  string environment = 5;
+  repeated Interface interfaces = 6;
 }
 
 message Switch {
@@ -151,12 +176,13 @@ message Switch {
     string name = 1;
   }
 
-  map<string, string> attributes = 1;
-  string name = 2;
-  string model = 3;
-  string environment = 4;
-  string rack = 5;
-  string rank = 6;
-  repeated Interface interfaces = 7;
+  ZoneScope scope = 1;
+  map<string, string> attributes = 2;
+  string name = 3;
+  string model = 4;
+  string environment = 5;
+  string rack = 6;
+  string rank = 7;
+  repeated Interface interfaces = 8;
 }
 
