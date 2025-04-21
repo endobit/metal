@@ -120,7 +120,7 @@ func newApplianceAttr(src db.ReadApplianceAttributeRow) ApplianceAttr {
 		Attr: Attr{
 			Name:        src.Name,
 			Value:       value(src.Value),
-			IsProtected: src.IsProtected == 1,
+			IsProtected: value(src.IsProtected) == 1,
 			id:          src.ID,
 		},
 	}
@@ -226,7 +226,7 @@ func (s Store) UpdateApplianceAttrProtection(ctx context.Context, protected bool
 		Zone:        scope.Zone,
 		Appliance:   scope.Appliance,
 		Attr:        scope.Attr,
-		IsProtected: boolean(protected),
+		IsProtected: Optional(boolean(protected)),
 	})
 }
 

@@ -79,7 +79,7 @@ type ReadModelAttributeRow struct {
 	Make        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadModelAttribute
@@ -152,7 +152,7 @@ type ReadModelAttributesRow struct {
 	Make        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // READ
@@ -249,7 +249,7 @@ type ReadModelAttributesByGlobRow struct {
 	Make        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadModelAttributesByGlob
@@ -351,7 +351,7 @@ type ReadModelAttributesByMakeRow struct {
 	Make        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadModelAttributesByMake
@@ -447,7 +447,7 @@ type ReadModelAttributesByMakeModelRow struct {
 	Make        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadModelAttributesByMakeModel
@@ -561,7 +561,7 @@ WHERE
 `
 
 type UpdateModelAttributeProtectionParams struct {
-	IsProtected int64
+	IsProtected *int64
 	Model       string
 	Make        string
 	Attr        string

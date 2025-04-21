@@ -72,7 +72,7 @@ type ReadZoneAttributeRow struct {
 	Zone        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadZoneAttribute
@@ -135,7 +135,7 @@ type ReadZoneAttributesRow struct {
 	Zone        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // READ
@@ -220,7 +220,7 @@ type ReadZoneAttributesByGlobRow struct {
 	Zone        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadZoneAttributesByGlob
@@ -310,7 +310,7 @@ type ReadZoneAttributesByZoneRow struct {
 	Zone        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadZoneAttributesByZone
@@ -407,7 +407,7 @@ WHERE
 `
 
 type UpdateZoneAttributeProtectionParams struct {
-	IsProtected int64
+	IsProtected *int64
 	Zone        string
 	Attr        string
 }

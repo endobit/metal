@@ -28,7 +28,7 @@ func newGlobalAttr(src db.ReadGlobalAttributeRow) *GlobalAttr {
 			id:          src.ID,
 			Name:        src.Name,
 			Value:       value(src.Value),
-			IsProtected: src.IsProtected == 1,
+			IsProtected: value(src.IsProtected) == 1,
 		},
 	}
 }
@@ -91,7 +91,7 @@ func (s Store) UpdateGlobalAttrValue(ctx context.Context, value string, scope Gl
 func (s Store) UpdateGlobalAttrProtection(ctx context.Context, protected bool, scope GlobalAttrScope) error {
 	return s.db.UpdateGlobalAttributeProtection(ctx, db.UpdateGlobalAttributeProtectionParams{
 		Attr:        scope.Attr,
-		IsProtected: boolean(protected),
+		IsProtected: Optional(boolean(protected)),
 	})
 }
 

@@ -61,7 +61,7 @@ type ReadGlobalAttributeRow struct {
 	ID          int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadGlobalAttribute
@@ -114,7 +114,7 @@ type ReadGlobalAttributesRow struct {
 	ID          int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // READ
@@ -187,7 +187,7 @@ type ReadGlobalAttributesByGlobRow struct {
 	ID          int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadGlobalAttributesByGlob
@@ -275,7 +275,7 @@ WHERE
 `
 
 type UpdateGlobalAttributeProtectionParams struct {
-	IsProtected int64
+	IsProtected *int64
 	Attr        string
 }
 

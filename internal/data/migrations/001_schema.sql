@@ -73,7 +73,7 @@ CREATE TABLE attributes (
 	object		INTEGER,			-- ID of the associated object (NULL for global attributes)
 	name		TEXT NOT NULL,			-- Attribute key
 	value		TEXT,				-- Attribute value
-	is_protected	INTEGER NOT NULL CHECK (is_protected IN (0, 1)),	-- Whether the attribute is protected
+	is_protected	INTEGER CHECK (is_protected IN (0, 1)),	-- Whether the attribute is protected
 	UNIQUE (entity, object, name),		-- Ensure uniqueness for (entity, object, key) combinations
 	FOREIGN KEY (entity) REFERENCES entities(id) ON DELETE CASCADE
 );

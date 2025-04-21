@@ -98,7 +98,7 @@ type ReadHostAttributeRow struct {
 	ID          int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 	Host        string
 	Zone        *string
 	Cluster     *string
@@ -192,7 +192,7 @@ type ReadHostAttributesRow struct {
 	ID          int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 	Host        string
 	Zone        *string
 	Cluster     *string
@@ -302,7 +302,7 @@ type ReadHostAttributesByClusterRow struct {
 	ID          int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 	Host        string
 	Zone        *string
 	Cluster     *string
@@ -425,7 +425,7 @@ type ReadHostAttributesByGlobRow struct {
 	ID          int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 	Host        string
 	Zone        *string
 	Cluster     *string
@@ -551,7 +551,7 @@ type ReadHostAttributesByHostRow struct {
 	ID          int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 	Host        string
 	Zone        *string
 	Cluster     *string
@@ -669,7 +669,7 @@ type ReadHostAttributesByZoneRow struct {
 	ID          int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 	Host        string
 	Zone        *string
 	Cluster     *string
@@ -822,7 +822,7 @@ WHERE
 `
 
 type UpdateHostAttributeProtectionParams struct {
-	IsProtected int64
+	IsProtected *int64
 	Attr        string
 	Host        string
 	Zone        string

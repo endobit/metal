@@ -115,7 +115,7 @@ type ReadAttributesRow struct {
 	Object      *int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // READ
@@ -186,7 +186,7 @@ WHERE
 
 type UpdateAttributeParams struct {
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 	Entity      string
 	Object      *int64
 	Name        string
@@ -264,7 +264,7 @@ WHERE
 `
 
 type UpdateAttributeProtectionParams struct {
-	IsProtected int64
+	IsProtected *int64
 	Entity      string
 	Object      *int64
 	Name        string

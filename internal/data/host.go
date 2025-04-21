@@ -171,7 +171,7 @@ func newHostAttr(src db.ReadHostAttributeRow) HostAttr {
 			id:          src.ID,
 			Name:        src.Name,
 			Value:       value(src.Value),
-			IsProtected: src.IsProtected == 1,
+			IsProtected: value(src.IsProtected) == 1,
 		},
 	}
 }
@@ -487,7 +487,7 @@ func (s Store) UpdateHostAttrProtection(ctx context.Context, protected bool, sco
 		Cluster:     scope.Cluster,
 		Host:        scope.Host,
 		Attr:        scope.Attr,
-		IsProtected: boolean(protected),
+		IsProtected: Optional(boolean(protected)),
 	})
 }
 

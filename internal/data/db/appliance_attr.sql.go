@@ -81,7 +81,7 @@ type ReadApplianceAttributeRow struct {
 	Appliance   string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadApplianceAttribute
@@ -158,7 +158,7 @@ type ReadApplianceAttributesRow struct {
 	Appliance   string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // READ
@@ -256,7 +256,7 @@ type ReadApplianceAttributesByApplianceRow struct {
 	Appliance   string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadApplianceAttributesByAppliance
@@ -362,7 +362,7 @@ type ReadApplianceAttributesByGlobRow struct {
 	Appliance   string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadApplianceAttributesByGlob
@@ -467,7 +467,7 @@ type ReadApplianceAttributesByZoneRow struct {
 	Appliance   string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadApplianceAttributesByZone
@@ -601,7 +601,7 @@ WHERE
 `
 
 type UpdateApplianceAttributeProtectionParams struct {
-	IsProtected int64
+	IsProtected *int64
 	Appliance   string
 	Zone        string
 	Attr        string

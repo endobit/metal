@@ -121,7 +121,7 @@ func newEnvironmentAttr(src db.ReadEnvironmentAttributeRow) EnvironmentAttr {
 			id:          src.ID,
 			Name:        src.Name,
 			Value:       value(src.Value),
-			IsProtected: src.IsProtected == 1,
+			IsProtected: value(src.IsProtected) == 1,
 		},
 	}
 }
@@ -225,7 +225,7 @@ func (s Store) UpdateEnvironmentAttrProtection(ctx context.Context, protected bo
 		Zone:        scope.Zone,
 		Environment: scope.Environment,
 		Attr:        scope.Attr,
-		IsProtected: boolean(protected),
+		IsProtected: Optional(boolean(protected)),
 	})
 }
 

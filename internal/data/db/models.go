@@ -20,7 +20,7 @@ type Attribute struct {
 	Object      *int64
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 type Bmc struct {

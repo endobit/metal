@@ -81,7 +81,7 @@ type ReadRackAttributeRow struct {
 	Rack        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadRackAttribute
@@ -158,7 +158,7 @@ type ReadRackAttributesRow struct {
 	Rack        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // READ
@@ -258,7 +258,7 @@ type ReadRackAttributesByGlobRow struct {
 	Rack        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadRackAttributesByGlob
@@ -364,7 +364,7 @@ type ReadRackAttributesByRackRow struct {
 	Rack        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadRackAttributesByRack
@@ -467,7 +467,7 @@ type ReadRackAttributesByZoneRow struct {
 	Rack        string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadRackAttributesByZone
@@ -601,7 +601,7 @@ WHERE
 `
 
 type UpdateRackAttributeProtectionParams struct {
-	IsProtected int64
+	IsProtected *int64
 	Rack        string
 	Zone        string
 	Attr        string

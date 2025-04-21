@@ -93,7 +93,7 @@ func newZoneAttr(src db.ReadZoneAttributeRow) ZoneAttr {
 			id:          src.ID,
 			Name:        src.Name,
 			Value:       value(src.Value),
-			IsProtected: src.IsProtected == 1,
+			IsProtected: value(src.IsProtected) == 1,
 		},
 	}
 }
@@ -189,7 +189,7 @@ func (s Store) UpdateZoneAttrProtection(ctx context.Context, protected bool, sco
 	return s.db.UpdateZoneAttributeProtection(ctx, db.UpdateZoneAttributeProtectionParams{
 		Zone:        scope.Zone,
 		Attr:        scope.Attr,
-		IsProtected: boolean(protected),
+		IsProtected: Optional(boolean(protected)),
 	})
 }
 

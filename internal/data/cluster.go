@@ -121,7 +121,7 @@ func newClusterAttr(src db.ReadClusterAttributeRow) ClusterAttr {
 			id:          src.ID,
 			Name:        src.Name,
 			Value:       value(src.Value),
-			IsProtected: src.IsProtected == 1,
+			IsProtected: value(src.IsProtected) == 1,
 		},
 	}
 }
@@ -225,7 +225,7 @@ func (s Store) UpdateClusterAttrProtection(ctx context.Context, protected bool, 
 		Zone:        scope.Zone,
 		Cluster:     scope.Cluster,
 		Attr:        scope.Attr,
-		IsProtected: boolean(protected),
+		IsProtected: Optional(boolean(protected)),
 	})
 }
 

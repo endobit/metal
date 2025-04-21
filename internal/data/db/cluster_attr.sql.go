@@ -81,7 +81,7 @@ type ReadClusterAttributeRow struct {
 	Cluster     string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadClusterAttribute
@@ -158,7 +158,7 @@ type ReadClusterAttributesRow struct {
 	Cluster     string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // READ
@@ -256,7 +256,7 @@ type ReadClusterAttributesByClusterRow struct {
 	Cluster     string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadClusterAttributesByCluster
@@ -362,7 +362,7 @@ type ReadClusterAttributesByGlobRow struct {
 	Cluster     string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadClusterAttributesByGlob
@@ -467,7 +467,7 @@ type ReadClusterAttributesByZoneRow struct {
 	Cluster     string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadClusterAttributesByZone
@@ -601,7 +601,7 @@ WHERE
 `
 
 type UpdateClusterAttributeProtectionParams struct {
-	IsProtected int64
+	IsProtected *int64
 	Cluster     string
 	Zone        string
 	Attr        string

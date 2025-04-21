@@ -135,7 +135,7 @@ func newModelAttr(src db.ReadModelAttributeRow) ModelAttr {
 			id:          src.ID,
 			Name:        src.Name,
 			Value:       value(src.Value),
-			IsProtected: src.IsProtected == 1,
+			IsProtected: value(src.IsProtected) == 1,
 		},
 	}
 }
@@ -249,7 +249,7 @@ func (s Store) UpdateModelAttrProtection(ctx context.Context, protected bool, sc
 		Make:        scope.Make,
 		Model:       scope.Model,
 		Attr:        scope.Attr,
-		IsProtected: boolean(protected),
+		IsProtected: Optional(boolean(protected)),
 	})
 }
 

@@ -81,7 +81,7 @@ type ReadEnvironmentAttributeRow struct {
 	Environment string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadEnvironmentAttribute
@@ -158,7 +158,7 @@ type ReadEnvironmentAttributesRow struct {
 	Environment string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // READ
@@ -256,7 +256,7 @@ type ReadEnvironmentAttributesByEnvironmentRow struct {
 	Environment string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadEnvironmentAttributesByEnvironment
@@ -362,7 +362,7 @@ type ReadEnvironmentAttributesByGlobRow struct {
 	Environment string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadEnvironmentAttributesByGlob
@@ -467,7 +467,7 @@ type ReadEnvironmentAttributesByZoneRow struct {
 	Environment string
 	Name        string
 	Value       *string
-	IsProtected int64
+	IsProtected *int64
 }
 
 // ReadEnvironmentAttributesByZone
@@ -601,7 +601,7 @@ WHERE
 `
 
 type UpdateEnvironmentAttributeProtectionParams struct {
-	IsProtected int64
+	IsProtected *int64
 	Environment string
 	Zone        string
 	Attr        string

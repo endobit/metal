@@ -121,7 +121,7 @@ func newRackAttr(src db.ReadRackAttributeRow) RackAttr {
 			id:          src.ID,
 			Name:        src.Name,
 			Value:       value(src.Value),
-			IsProtected: src.IsProtected == 1,
+			IsProtected: value(src.IsProtected) == 1,
 		},
 	}
 }
@@ -225,7 +225,7 @@ func (s Store) UpdateRackAttrProtection(ctx context.Context, protected bool, sco
 		Zone:        scope.Zone,
 		Rack:        scope.Rack,
 		Attr:        scope.Attr,
-		IsProtected: boolean(protected),
+		IsProtected: Optional(boolean(protected)),
 	})
 }
 
